@@ -6,5 +6,6 @@ module.exports = {
     title: `shira-sonigo-site`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",],
 }
