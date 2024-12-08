@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `shira-sonigo-site`,
+    title: `Shira Sonigo`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [    
