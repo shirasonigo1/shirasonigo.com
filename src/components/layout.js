@@ -7,8 +7,9 @@ import {
   navLinks,
   navLinkItem,
   navLinkText,
-  siteTitle,
-  headerNav
+  headerNav,
+  pagebody, 
+  navLinkTextactive
 } from './layout.module.css'
 
 const Layout = ({ pageTitle, children }) => {
@@ -29,17 +30,17 @@ const Layout = ({ pageTitle, children }) => {
         <nav>
           <ul className={navLinks}>
             <li className={navLinkItem}>
-              <Link to="/" className={navLinkText}>
-                Home
+              <Link to="/about" className={navLinkText}  activeClassName={navLinkTextactive}>
+                About Me
               </Link>
             </li>
             <li className={navLinkItem}>
-              <Link to="/about" className={navLinkText}>
-                About
+              <Link to="/projects" className={navLinkText}  activeClassName={navLinkTextactive}>
+                Projects
               </Link>
             </li>
             <li className={navLinkItem}>
-              <Link to="/blog" className={navLinkText}>
+              <Link to="/blog" className={navLinkText}  activeClassName={navLinkTextactive}>
                 Blog
               </Link>
             </li>
@@ -48,7 +49,7 @@ const Layout = ({ pageTitle, children }) => {
       </div>
       <main>
         <h1 className={heading}>{pageTitle}</h1>
-        {children}
+      <div className={pagebody}> {children}</div> 
       </main>
     </div>
   )
