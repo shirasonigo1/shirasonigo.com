@@ -12,7 +12,7 @@ const IndexPage = () => {
   )
 }
 
-export const Head = () => <Seo title="Home Page" />
+export const Head = () => <Seo title="Shira Sonigo" />
 
 // Step 3: Export your component
 export default IndexPage

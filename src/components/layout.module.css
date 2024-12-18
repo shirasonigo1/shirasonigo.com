@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 .container {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 6rem;
+    margin-right: 6rem;
     background-color: #f9fafb;
     padding: 22px;
     font-family: 'oswald', sans-serif;
@@ -20,7 +20,7 @@
   .container {
     margin-left: 8px;
     margin-right: 8px;
-    padding: 16px;
+    padding: 1rem;
   }
 }
 
@@ -45,6 +45,8 @@
   }
   /* New class for header and nav container */
 .headerNav {
+  width: 100%;
+  box-sizing: border-box;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
