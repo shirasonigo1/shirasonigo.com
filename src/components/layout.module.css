@@ -23,6 +23,17 @@
     padding: 1rem;
   }
 }
+.social{
+ display: flex; 
+ box-sizing: border-box;
+ justify-content: space-between;
+  display: inline-flex;
+  align-items: center;
+}
+.footerSection {
+  font-size: 14px;
+  border-top:1px solid #d1d5db;
+}
 
 @media screen and (max-width: 768px) {
   .container {
@@ -53,7 +64,6 @@
   padding: 1rem;
   font-weight: 300;
   font-size: 1.5rem;
-  gap: 6rem;
 }
 
 .navLinks {

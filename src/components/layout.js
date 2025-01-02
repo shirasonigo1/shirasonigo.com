@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import Header from '../components/Header'
+import Header from './Header'
+import Footer from './footer'
 import {
   container,
   heading,
@@ -11,6 +12,7 @@ import {
   pagebody, 
   navLinkTextactive
 } from './layout.module.css'
+import { FaGithub, FaLinkedin } from 'react-icons/fa';  // Import the GitHub icon
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -44,6 +46,16 @@ const Layout = ({ pageTitle, children }) => {
                 Blog
               </Link>
             </li>
+            <li className={navLinkItem}>
+            <a href="https://github.com/shirasonigo1" target="_blank" rel="noopener noreferrer">
+        <FaGithub style={{ color: 'black' , fontSize: '24px' }}/>
+    </a>
+            </li>
+            <li className={navLinkItem}>
+            <a href="https://www.linkedin.com/in/shira-sonigo-051ab3198" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin style={{ color: 'black', fontSize: '24px' }}/>
+    </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -51,6 +63,7 @@ const Layout = ({ pageTitle, children }) => {
         <h1 className={heading}>{pageTitle}</h1>
       <div className={pagebody}> {children}</div> 
       </main>
+      <Footer />
     </div>
   )
 }
