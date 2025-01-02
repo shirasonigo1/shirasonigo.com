@@ -15,7 +15,7 @@ const Header = () => {
         className="profileImage"
         width={50}
         height={50}
-        imgStyle={{ borderRadius: '50%' }}
+        imgStyle={{ borderRadius: '50%', objectFit: "cover", objectPosition:"center" }}
       />
           </Link>
       <span>
