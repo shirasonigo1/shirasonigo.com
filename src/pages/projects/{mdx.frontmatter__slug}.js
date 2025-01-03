@@ -9,11 +9,18 @@ const Project = ({ data, children }) => {
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>{data.mdx.frontmatter.year}</p>
-      <GatsbyImage
-        image={image}
-        alt={data.mdx.frontmatter.hero_image_alt}
-      />
+      <div className='project_post'> 
+         <div className='prject_image'> 
+           <GatsbyImage
+            alt="hero"
+        image={image}   
+        className='image_box'
+      /> 
+      </div>
+<div className='project_children'>
       {children}
+      </div>
+      </div>
     </Layout>
   )
 }
@@ -26,7 +33,7 @@ export const query = graphql`
         year
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 1000 height: 1000)
           }
         }
       }
