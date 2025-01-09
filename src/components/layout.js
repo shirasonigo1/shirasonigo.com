@@ -10,27 +10,30 @@ import {
   navLinkText,
   headerNav,
   pagebody, 
-  navLinkTextactive
+  navLinkTextactive, 
+  hamburgerIcon, 
+  mobileNavActive
 } from './layout.module.css'
-import { FaGithub, FaLinkedin } from 'react-icons/fa';  // Import the GitHub icon
+import { FaGithub, FaLinkedin, FaTimes, FaBars } from 'react-icons/fa';  // Import the GitHub icon
 
 const Layout = ({ pageTitle, children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const toggleMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };  
+
+
 
   return (
     <div className={container}>
       <div className={headerNav}>
         <Header />
         <nav>
-          <ul className={navLinks}>
+        <ul
+            className={`${navLinks} ${
+              isMobileMenuOpen ? mobileNavActive : ''
+            }`}
+          >
             <li className={navLinkItem}>
               <Link to="/about" className={navLinkText}  activeClassName={navLinkTextactive}>
                 About Me
@@ -57,6 +60,9 @@ const Layout = ({ pageTitle, children }) => {
     </a>
             </li>
           </ul>
+          <button className={hamburgerIcon} onClick={toggleMenu}>
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
         </nav>
       </div>
       <main>
