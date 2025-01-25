@@ -15,7 +15,10 @@
     text-transform: none;
     color: #1C1C1C;
 }
-
+p {
+  margin-bottom: 1.5em;
+  font-size: 18px;
+}
 /* Hamburger button */
 .hamburgerIcon {
   display: none;
@@ -71,7 +74,6 @@
     display: flex;
   }
 }
-
 
 @media screen and (max-width: 480px) {
   .container {
@@ -171,6 +173,8 @@ body {
  
 main {
   padding: 1rem;
+  margin: 0 0 auto;
+  max-width: 1000px;
 }
 
 .herodescription {

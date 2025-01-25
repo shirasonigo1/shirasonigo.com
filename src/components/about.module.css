@@ -1,0 +1,19 @@
+
+.aboutpage {
+    display: flex; 
+    align-items: top;
+    justify-content: space-between;
+    gap: 2rem;
+    line-height: 1.5;
+    width: 100%;
+}
+.aboutimage {
+    height: 430px;
+    object-fit: cover;
+    height: auto;
+    flex-shrink: 0;
+    max-height: 100%;
+}
+.pagetext {
+    margin-bottom: 1.5em;
+}
