@@ -37,9 +37,7 @@ const AboutPage = () => {
           imgStyle={{ borderRadius: '3%', objectPosition:'center bottom'}}
         />
         <p>After my trip, I joined Forter as a software engineer, and I couldn’t have made a better choice. I was part of the infrastructure group, where I worked with incredibly talented people who I now call friends! I contributed to projects involving K8S, multi-cloud environments, and networking. In my last year, I was part of the observability team in the UK, opening new doors to how we monitor our systems and build the right infrastructure for these challenges. I worked at Forter for three years, with a short one-month holiday to India—my second solo trip adventure!</p>
-        <p> Software has always been a part of my life. I enjoy the process of learning new technical skills and developing my thinking. It all started when I developed my first Python game at 16, earning the nickname "The Python Queen" from my friend May later in life. I have always been curious about how things work from the ground up! As a kid, my favorite pastime was observing building layouts from airplanes and being amazed that someone designed it all. I was always an observer—if you ask my mother, she’d say I’m the quality control at home.
-</p>
-<p> During my trip to India, I discovered my passion for crafting and sketching. I started to learn by doing, exploring how I can tell a story about craft, culture, and the functionality of living through writing, sketching, and sculpting. I asked myself a lot of questions and decided to challenge them all. </p>
+        <p> Software has always been a part of my life. I enjoy the process of learning new technical skills and developing my thinking. It all started when I developed my first Python game at 16, earning the nickname "The Python Queen" from my friend May later in life. I have always been curious about how things work from the ground up! As a kid, my favorite pastime was observing building layouts from airplanes and being amazed that someone designed it all. Being naturally observant, my mother often called me the quality control at home. </p>
 <StaticImage
           alt="trip to india"
           src="../images/india.jpeg"
@@ -54,8 +52,8 @@ const AboutPage = () => {
             objectPosition: 'center bottom' 
           }}
         />
-<p> My journey led me to the Innovation Design Engineering program at RCA/Imperial, where I explore the intersection of technology, creativity, and culture. My aim is to work on projects that will impact the world we live in and help create a better future.</p>
-
+<p> My journey led me to the Innovation Design Engineering program at RCA/Imperial, where I explore the intersection of technology, creativity, and culture. </p>
+<h2>My aim is to work on projects that will impact the world we live in and help create a better future.</h2>
 <p> Beyond work, I enjoy being active, cooking, reading books, and spending time with my family and friends. </p>
 
 <p> Thanks for stopping by!</p>
