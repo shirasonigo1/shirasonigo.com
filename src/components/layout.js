@@ -61,7 +61,7 @@ const Layout = ({ pageTitle, children }) => {
             </li>
           </ul>
           <button className={hamburgerIcon} onClick={toggleMenu}>
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          {isMobileMenuOpen ? <FaTimes style={{ color: 'black'}} /> : <FaBars style={{ color: 'black'}} />}
         </button>
         </nav>
       </div>
