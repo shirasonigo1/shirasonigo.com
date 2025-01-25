@@ -10,7 +10,7 @@ const AboutPage = () => {
     <Layout pageTitle="About Me">
       <div className={aboutpage}>
         <div className={pagetext}>
-<p>Hey, I’m Shira! I’m a software engineer who started my journey in the Israeli Army as a programmer in the digital department. During my service, I gained experience in different contexts and technologies. I decided to go to officer school to challenge myself and make a bigger impact in my place of service. This has become my main goal in life’s continuous journey—I aim to always try to do and give more.</p>
+<p>Hey, I’m Shira! I’m a software engineer who started my journey in the Israeli Army as a programmer. During my service, I gained experience in different contexts and technologies. I decided to go to officer school to challenge myself and make a bigger impact in my place of service. This has become my main goal in life’s continuous journey.</p>
 </div>
 
 <div className={aboutimage}>
@@ -27,6 +27,7 @@ const AboutPage = () => {
         />
         </div>
 </div>
+<h2>My goal is to consistently create value and inspire growth.</h2>
 <p> After my army service, I decided to pack a 40L bag, end my lease, and travel alone to Central America for three months. This was my first solo trip. It wasn’t an easy choice, but I did it, experiencing an amazing journey and meeting lifelong friends from all over the world.</p> 
 <StaticImage
           alt="trip to gutamala"
