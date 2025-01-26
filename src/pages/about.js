@@ -53,7 +53,7 @@ const AboutPage = () => {
             objectPosition: 'center bottom' 
           }}
         />
-<p> My journey led me to the Innovation Design Engineering program at RCA/Imperial, where I explore the intersection of technology, creativity, and culture. </p>
+<p> My journey led me to the pursue an MA / MSc in Innovation Design Engineering (IDE) at Imperial College London and the Royal College of Art, where I explore the intersection of technology, creativity, culture and impact. </p>
 <h2>My aim is to work on projects that will impact the world we live in and help create a better future.</h2>
 <p> Beyond work, I enjoy being active, cooking, reading books, and spending time with my family and friends. </p>
 
