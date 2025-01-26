@@ -10,7 +10,7 @@ const AboutPage = () => {
     <Layout pageTitle="About Me">
       <div className={aboutpage}>
         <div className={pagetext}>
-<p>Hey, I’m Shira! I’m a software engineer who started my journey in the Israeli Army as a programmer. During my service, I gained experience in different contexts and technologies. I decided to go to officer school to challenge myself and make a bigger impact in my place of service. This has become my main goal in life’s continuous journey.</p>
+<p>Hey, I’m Shira! I’m a software engineer and a practice designer based in London. I started my journey in the Israeli Army as a programmer. During my service, I gained experience in different contexts and technologies. I decided to go to officer school to challenge myself and make a bigger impact in my place of service. This has become my main goal in life’s continuous journey.</p>
 </div>
 
 <div className={aboutimage}>
@@ -22,8 +22,8 @@ const AboutPage = () => {
             fit: "cover",  // Options: 'cover', 'contain', 'fill', 'inside', 'outside'
             cropFocus: "center" // Focus on the bottom part of the image (where the table might be)
           }}
-          height={270}
-          width={200}
+          height={250}
+          width={180}
         />
         </div>
 </div>
