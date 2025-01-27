@@ -2,23 +2,32 @@ import * as React from 'react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="Projects">
-      {
-        data.allMdx.nodes.map((node) => (
-          <article key={node.id}>
-               <h2>
-              <Link to={`/projects/${node.frontmatter.slug}`}>
-                {node.frontmatter.title}
-              </Link>
-            </h2>
-            <p>Posted: {node.frontmatter.year}</p>
-            <p>{node.excerpt}</p>
-          </article>
-        ))
-      }
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+        {
+          data.allMdx.nodes.map(node => (
+            <article key={node.id} style={{border: '1px solid #ddd', padding: '20px', borderRadius: '8px' }}>
+              <GatsbyImage
+                image={getImage(node.frontmatter.hero_image)}
+                alt={node.frontmatter.title}
+                style={{height:'200px',  borderRadius: '3%', objectPosition: 'bottom', float: 'right' }}
+                imgStyle={{ objectFit: 'cover' }}
+              />
+              <h2 style={{ margin: '0'}}>
+                <Link style= {{ margin: '0', color: 'black', fontWeight: 'normal' }} to={`/projects/${node.frontmatter.slug}`}>
+                  {node.frontmatter.title}
+                </Link>
+              </h2>
+              <p style={{ margin: '0' }}>Posted: {node.frontmatter.year}</p>
+              <p>{node.excerpt}</p>
+            </article>
+          ))
+        }
+      </div>
     </Layout>
   )
 }
@@ -31,6 +40,11 @@ export const query = graphql`
           year
           title
           slug
+          hero_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
         }
         id
         excerpt
