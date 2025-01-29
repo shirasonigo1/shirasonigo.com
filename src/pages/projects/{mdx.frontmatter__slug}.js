@@ -15,16 +15,19 @@ const zoomOutProperties = {
   arrows: true,
 };
 
+
+
 const Project = ({ data, children }) => {
   const image = getImage(data.mdx.frontmatter.hero_image)
   console.log(image)
   const sliders = data.mdx.frontmatter.sliders
 
+ 
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>{data.mdx.frontmatter.year}</p>
       <div className='project_post'> 
-        {sliders.map((slider, index) => (
+        {sliders?.map((slider, index) => (
           <div key={index} className='slider'>
              <Zoom {...zoomOutProperties}>
             {slider.images.map((image, imgIndex) => {
@@ -57,11 +60,6 @@ export const query = graphql`
       frontmatter {
         title
         year
-        hero_image {
-          childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, height: 300)
-          }
-        }
         sliders {
           images {
             childImageSharp {
