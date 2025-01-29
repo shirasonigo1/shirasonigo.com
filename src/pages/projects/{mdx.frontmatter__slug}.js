@@ -1,22 +1,48 @@
 import * as React from 'react'
 import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Zoom } from "react-slideshow-image";
 import Seo from '../../components/seo'
 import { graphql } from 'gatsby'  
+import "react-slideshow-image/dist/styles.css";
+
+const zoomOutProperties = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  indicators: true,
+  scale: 1,
+  arrows: true,
+};
 
 const Project = ({ data, children }) => {
   const image = getImage(data.mdx.frontmatter.hero_image)
+  console.log(image)
+  const sliders = data.mdx.frontmatter.sliders
+
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>{data.mdx.frontmatter.year}</p>
       <div className='project_post'> 
-         <div className='prject_image'> 
-           <GatsbyImage
-            alt="hero"
-        image={image}   
-        className='image_box'
-      /> 
-      </div>
+        {sliders.map((slider, index) => (
+          <div key={index} className='slider'>
+             <Zoom {...zoomOutProperties}>
+            {slider.images.map((image, imgIndex) => {
+              const sliderImage = getImage(image)
+                return (
+                <GatsbyImage
+                  key={imgIndex}
+                  alt={`slider image ${imgIndex + 1}`}
+                  image={sliderImage}
+                  className='slider_image'
+                  objectPosition={'center'}
+                  style={{ maxHeight: '100vh', width: 'auto' }}
+                />
+                )
+            })}
+            </Zoom>
+          </div>
+        ))}
 <div className='project_children'>
       {children}
       </div>
@@ -33,7 +59,14 @@ export const query = graphql`
         year
         hero_image {
           childImageSharp {
-            gatsbyImageData(width: 1000 height: 1000)
+            gatsbyImageData(layout: CONSTRAINED, height: 300)
+          }
+        }
+        sliders {
+          images {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, transformOptions: {fit: COVER, cropFocus: ATTENTION})
+            }
           }
         }
       }
