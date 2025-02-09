@@ -17,7 +17,6 @@ const zoomOutProperties = {
 };
 
 const Project = ({ data, children }) => {
-  const image = getImage(data.mdx.frontmatter.hero_image)
   const sliders = data.mdx.frontmatter.sliders
   const content = data.mdx.body
   
