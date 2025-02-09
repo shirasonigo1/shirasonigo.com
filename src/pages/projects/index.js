@@ -24,6 +24,19 @@ const BlogPage = ({ data }) => {
               </h2>
               <p style={{ margin: '0' }}>Posted: {node.frontmatter.year}</p>
               <p>{node.excerpt}</p>
+              {node.frontmatter.tags && node.frontmatter.tags.length > 0 && (
+                <div style= {{display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '10px'}}>
+                  {node.frontmatter.tags.map((tag, index) => (
+                    <span key={index} style= {{    backgroundColor: '#f3f4f6',
+                      padding: '4px 8px',
+                      borderRadius: '4px',
+                      fontSize: '0.9rem',
+                      color: '#666'}}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </article>
           ))
         }
@@ -40,6 +53,7 @@ export const query = graphql`
           year
           title
           slug
+          tags
           hero_image {
             childImageSharp {
               gatsbyImageData(layout: CONSTRAINED)
