@@ -14,7 +14,7 @@ const Header = () => {
         {location.pathname !== '/about/' && (
         <Link to="/" >
       <StaticImage 
-        src="../images/about.JPG"
+        src="../images/header.jpg"
         alt="Profile picture"
         className="profileImage"
         width={50}
