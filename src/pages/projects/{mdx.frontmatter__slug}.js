@@ -3,7 +3,7 @@ import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Zoom } from "react-slideshow-image";
 import Seo from '../../components/seo'
-import { graphql } from 'gatsby'  
+import { Link, graphql } from 'gatsby'  
 import "react-slideshow-image/dist/styles.css";
 import {contentproject} from '../../components/layout.module.css'
 
@@ -126,6 +126,9 @@ const Project = ({ data, children }) => {
         <div className="final-content">
           {sections.find(section => section.type === 'outro')?.content}
         </div>
+        <Link style= {{ margin: '0', color: 'black', fontWeight: 'normal' }} to={`https://www.linkedin.com/posts/shira-sonigo-051ab3198_speculative-design-rethinking-family-activity-7274732813554208768-IZyE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC5vx30Bm6ywf0fLOzBkQ4sw1HS6XtV6wNk`}>
+                  {"Linkedin post"}
+                </Link>
       </div>
     </Layout>
   )
@@ -138,6 +141,7 @@ export const query = graphql`
       frontmatter {
         title
         year
+        linkedin_post
         sliders {
           images {
             childImageSharp {
