@@ -6,6 +6,7 @@ import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'  
 import "react-slideshow-image/dist/styles.css";
 import {contentproject} from '../../components/layout.module.css'
+import Video from "../../components/video"
 
 const zoomOutProperties = {
   duration: 5000,
@@ -136,6 +137,15 @@ const Project = ({ data, children }) => {
         </Link>
       )}
 
+
+
+        {data.mdx.frontmatter.videoSrcURL && (
+        <Video
+        videoSrcURL={data.mdx.frontmatter.videoSrcURL}
+        videoTitle={data.mdx.frontmatter.videoTitle}
+      />
+      )}
+
       </div>
     </Layout>
   )
@@ -149,6 +159,8 @@ export const query = graphql`
         title
         year
         linkedin_post
+        videoSrcURL
+        videoTitle
         sliders {
           images {
             childImageSharp {
