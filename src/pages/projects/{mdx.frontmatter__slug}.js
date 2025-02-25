@@ -136,6 +136,14 @@ const Project = ({ data, children }) => {
           Linkedin post
         </Link>
       )}
+      {data.mdx.frontmatter.GithubLink && (
+        <Link
+          style={{ margin: '0', color: 'black', fontWeight: 'normal' }}
+          to={data.mdx.frontmatter.GithubLink}
+        >
+          <b>GitHub repository</b>
+        </Link>
+      )}
 
 
 
@@ -161,6 +169,7 @@ export const query = graphql`
         linkedin_post
         videoSrcURL
         videoTitle
+        GithubLink
         sliders {
           images {
             childImageSharp {
