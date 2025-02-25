@@ -147,12 +147,13 @@ const Project = ({ data, children }) => {
 
 
 
-        {data.mdx.frontmatter.videoSrcURL && (
-        <Video
-        videoSrcURL={data.mdx.frontmatter.videoSrcURL}
-        videoTitle={data.mdx.frontmatter.videoTitle}
-      />
-      )}
+{data.mdx.frontmatter.videoSrcURL?.map((url, index) => (
+  <Video 
+    key={index}
+    videoSrcURL={url}
+    videoTitle={data.mdx.frontmatter.videoTitle}
+  />
+))}
 
       </div>
     </Layout>

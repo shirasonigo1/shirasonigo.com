@@ -1,6 +1,8 @@
 import React from "react"
+import {video} from "./layout.module.css"
+
 const Video = ({ videoSrcURL, videoTitle, ...props }) => (
-  <div className="video">
+  <div className={video}>
     <iframe 
       width="100%" height="400px"
       src={videoSrcURL}
