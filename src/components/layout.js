@@ -50,6 +50,11 @@ const Layout = ({ pageTitle, children }) => {
               </Link>
             </li>
             <li className={navLinkItem}>
+        <a href="/static/a004bf233592fd4b32714df3a4eb5c9e/ShiraSonigoCV.pdf" download className={navLinkText}>
+          CV
+        </a>
+      </li>
+            <li className={navLinkItem}>
             <a href="https://github.com/shirasonigo1" target="_blank" rel="noopener noreferrer">
         <FaGithub style={{ color: 'black' , fontSize: '24px' }}/>
     </a>
@@ -59,6 +64,7 @@ const Layout = ({ pageTitle, children }) => {
         <FaLinkedin style={{ color: 'black', fontSize: '24px' }}/>
     </a>
             </li>
+          
           </ul>
           <button className={hamburgerIcon} onClick={toggleMenu}>
           {isMobileMenuOpen ? <FaTimes style={{ color: 'black'}} /> : <FaBars style={{ color: 'black'}} />}
