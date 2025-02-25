@@ -15,6 +15,7 @@ import {
   mobileNavActive
 } from './layout.module.css'
 import { FaGithub, FaLinkedin, FaTimes, FaBars } from 'react-icons/fa';  // Import the GitHub icon
+import CV from '../CV/ShiraSonigoCV.pdf'
 
 const Layout = ({ pageTitle, children }) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -50,7 +51,7 @@ const Layout = ({ pageTitle, children }) => {
               </Link>
             </li>
             <li className={navLinkItem}>
-        <a href="/static/a004bf233592fd4b32714df3a4eb5c9e/ShiraSonigoCV.pdf" download className={navLinkText}>
+        <a href={CV} download className={navLinkText}>
           CV
         </a>
       </li>
