@@ -118,6 +118,8 @@ export const query = graphql`
   }
 `
 
-export const Head = ({ data }) => <Seo title={data.mdx.frontmatter.title} />
+export const Head = ({ data, location }) => (
+  <Seo title={data.mdx.frontmatter.title} pathname={location.pathname} />
+)
 
 export default Project

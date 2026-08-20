@@ -33,6 +33,6 @@ const IndexPage = () => {
   )
 }
 
-export const Head = () => <Seo title="Shira Sonigo" />
+export const Head = ({ location }) => <Seo title="Shira Sonigo" pathname={location.pathname} />
 
 export default IndexPage

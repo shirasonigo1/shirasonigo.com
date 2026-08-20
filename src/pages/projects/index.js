@@ -44,6 +44,6 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="Projects" />
+export const Head = ({ location }) => <Seo title="Projects" pathname={location.pathname} />
 
 export default ProjectsPage

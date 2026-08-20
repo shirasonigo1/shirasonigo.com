@@ -64,6 +64,6 @@ const AboutPage = () => {
   )
 }
 
-export const Head = () => <Seo title="About me" />
+export const Head = ({ location }) => <Seo title="About me" pathname={location.pathname} />
 
 export default AboutPage
