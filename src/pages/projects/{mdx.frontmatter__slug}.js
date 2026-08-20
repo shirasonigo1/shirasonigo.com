@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import Gallery from '../../components/Gallery'
 import Video from '../../components/video'
+import Button from '../../components/ui/Button'
 import { contentproject } from '../../components/layout.module.css'
 
 /*
@@ -60,22 +61,19 @@ const Project = ({ data, children }) => {
         <MDXProvider components={components}>{children}</MDXProvider>
       </div>
 
-      {frontmatter.linkedin_post && (
-        <Link
-          style={{ margin: '0', color: 'black', fontWeight: 'normal' }}
-          to={frontmatter.linkedin_post}
-        >
-          Linkedin post
-        </Link>
-      )}
-      {frontmatter.GithubLink && (
-        <Link
-          style={{ margin: '0', color: 'black', fontWeight: 'normal' }}
-          to={frontmatter.GithubLink}
-        >
-          <b>GitHub repository</b>
-        </Link>
-      )}
+      {/* External links use Button's <a> (Gatsby <Link> is for internal routes only). */}
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
+        {frontmatter.linkedin_post && (
+          <Button href={frontmatter.linkedin_post} target="_blank" rel="noopener noreferrer">
+            LinkedIn post
+          </Button>
+        )}
+        {frontmatter.GithubLink && (
+          <Button href={frontmatter.GithubLink} target="_blank" rel="noopener noreferrer">
+            GitHub repository
+          </Button>
+        )}
+      </div>
 
       {frontmatter.videoSrcURL?.map((url, index) => (
         <Video key={index} videoSrcURL={url} videoTitle={frontmatter.videoTitle} />
