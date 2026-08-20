@@ -37,32 +37,80 @@
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 1.5rem;
 }
 
+/* Phase 4: cards become clean vertical tiles (image on top) with a lift on hover. */
 .card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--color-border-light);
-  padding: 20px;
   border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
 .cardImage {
-  height: 200px;
-  border-radius: 3%;
-  float: right;
+  width: 100%;
+  height: 210px;
+}
+
+.cardBody {
+  padding: 1.1rem 1.25rem 1.4rem;
 }
 
 .cardTitle {
-  margin: 0;
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
 }
 
 .cardTitleLink {
-  margin: 0;
   color: var(--color-text);
-  font-weight: normal;
+  font-weight: 500;
   text-decoration: none;
 }
 
+.cardTitleLink:hover {
+  color: var(--color-accent);
+}
+
 .cardMeta {
-  margin: 0;
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Section primitive */
+.section {
+  margin: 2.5rem 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+
+/* Project detail header meta */
+.projectMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.projectStack {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin: 0.75rem 0 0;
 }

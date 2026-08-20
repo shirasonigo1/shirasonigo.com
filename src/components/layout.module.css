@@ -1,34 +1,90 @@
-/* Fonts are now self-hosted via @fontsource in gatsby-browser.js (Phase 1). */
-/* Base element styles (body, main, p) moved to src/styles/global.css (Phase 1). */
+/* Fonts are self-hosted via @fontsource in gatsby-browser.js (Phase 1). */
+/* Base element styles (body, main, p) live in src/styles/global.css (Phase 1). */
 
+/*
+ * Phase 4 redesign: the page is a centered max-width "sheet" on a warm canvas,
+ * replacing the old fixed 12rem left/right margins (which collapsed awkwardly
+ * on mid-size screens). Class names are unchanged so component JS keeps working.
+ */
 .container {
-    margin-left: 12rem;
-    margin-right: 12rem;
-    background-color: #f9fafb;
-    padding: 22px;
-    font-family: 'oswald', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: normal;
-    line-height: 1.5; 
-    text-transform: none;
-    color: #1C1C1C;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--color-surface);
+  padding: 1.5rem 2.5rem 3.5rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--color-text);
 }
 
-
 .headerNav {
+  position: relative;              /* anchor for the mobile menu */
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0 1.25rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.headerbox {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  font-weight: 300;
-  font-size: 1.5rem;
+  gap: 0.75rem;
 }
 
-/* Hamburger button */
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--font-size-display);
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin: 2.25rem 0 1.5rem;
+}
+
+.pagebody {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+/* Navigation */
+.navLinks {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.navLinkItem {
+  padding-right: 1.75rem;
+}
+
+.navLinkItem:last-child {
+  padding-right: 0;
+}
+
+.navLinkText {
+  color: var(--color-text);
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: border-color 0.15s ease;
+}
+
+.navLinkText:hover {
+  border-bottom: 1.5px solid var(--color-accent);
+}
+
+.navLinkTextactive {
+  border-bottom: 1.5px solid var(--color-accent);
+}
+
+/* Hamburger button (shown on mobile only) */
 .hamburgerIcon {
   display: none;
   font-size: 24px;
@@ -38,44 +94,58 @@
   z-index: 1001;
   position: relative;
 }
-@media screen and (max-width: 1024px) {
-  .container {
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 1rem;
-  }  .headerNav {
-    padding: 1rem;
-  }
+
+/* Home hero copy */
+.herodescription {
+  margin-bottom: 1.25rem;
+  font-size: 1.2rem;
+  max-width: 62ch;
 }
-.social{
- display: flex; 
- box-sizing: border-box;
- justify-content: space-between;
-  display: inline-flex;
-  align-items: center;
+
+/* Project detail body */
+.contentproject {
+  padding: 1.5rem 0;
+  font-size: var(--font-size-body);
+  max-width: 72ch;
 }
+
+.video {
+  margin: 1.5rem 0;
+}
+
 .footerSection {
   font-size: 14px;
-  border-top:1px solid #d1d5db;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 1.25rem 1.5rem 3rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    margin-left: 4px;
-    margin-right: 4px;
-    padding: 8px;
+    padding: 1rem 1.1rem 2.5rem;
   }
-  .hamburgerIcon{
+  .hamburgerIcon {
     display: block;
   }
   .navLinks {
     flex-direction: column;
+    align-items: flex-start;
     position: absolute;
-    top: 60px; /* Adjust based on header height */
+    top: 64px;
     right: 0;
-    background: white;
-    border: 1px solid #d1d5db;
-    width: auto;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    gap: 0.85rem;
     z-index: 1000;
   }
   .navLinks:not(.mobileNavActive) {
@@ -83,105 +153,8 @@
   }
   .navLinks.mobileNavActive {
     display: flex;
-  }  .headerNav {
-    padding: 1rem;
   }
-}
-
-@media screen and (max-width: 480px) {
-  .container {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 8px;
-  }  .headerNav {
-    padding: 1rem;
+  .navLinkItem {
+    padding-right: 0;
   }
-}
-  .heading {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 400;
-  }
-
-.contentproject {
-  padding: 2rem 0 2rem 0;
-  font-size: 18px;
-}
-.navLinks {
-  display: flex;
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-.navLinks.mobileNavActive {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 90px; /* Adjust based on header height */
-  right: 0;
-  background-color: white;
-  border: 1px solid #d1d5db;
-  padding: 1rem;
-  gap: 1rem;
-  z-index: 1000;
-}
-/* .navLinks:not(.mobileNavActive) {
-  display: none;
-} */
-/* * {
-  border: 2px solid #1a1a1a;
-} */
-
-.pagebody
-{
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
-}
-
-.navLinkItem {
-  padding-right: 2rem;
-}
-
-.navLinkItem:last-child {
-  padding-right: 0;
-}
-
-.navLinkText {
-  color: black;
-  text-decoration: none; /* Remove default underline */
-  padding: 0; /* Remove any padding that could extend the clickable area */
-}
-
-.navLinkText:hover {
-  border-bottom: 1.5px solid black; /* Underline only the text content on hover */
-}
-
-.navLinkTextactive {
-  border-bottom: 1.5px solid black; /* Underline for active link */
-}
-
-.site-title {
-    font-size: 3rem;
-    color: gray;
-    font-weight: 700;
-    margin: 3rem 0;
-  }
-
-.headerbox {
-  width: 100%;
- display: inline-flex;
- justify-content: space-between;
- align-items: center;
- padding: 1rem 0;
- gap: 1rem;
-}
- 
-
-
-.herodescription {
-  margin-bottom: 1rem;
-  font-size: 18px;
-}
-
-.video {
-  margin: 1rem 0;
 }

@@ -5,20 +5,26 @@
  * later phases restyle by editing these variables rather than scattered literals.
  */
 :root {
-  /* Color */
-  --color-bg: #f3f4f6;          /* page background (was body bg) */
-  --color-surface: #f9fafb;     /* container surface */
-  --color-text: #1c1c1c;        /* body text */
-  --color-muted: #666666;       /* secondary text / tags */
-  --color-border: #d1d5db;      /* nav / footer borders */
-  --color-border-light: #dddddd;/* card borders */
-  --color-tag-bg: #f3f4f6;      /* project tag background */
+  /* Color — Phase 4: warm neutral canvas with a single burnt-clay accent
+     that nods to Shira's craft/design work while staying professional. */
+  --color-bg: #efece6;          /* warm page background */
+  --color-surface: #ffffff;     /* container "sheet" surface */
+  --color-text: #1c1c1c;        /* body text / ink */
+  --color-muted: #6b6b6b;       /* secondary text / tags */
+  --color-accent: #9a3412;      /* burnt-clay accent for links/hover/rules */
+  --color-border: #e2ddd5;      /* nav / footer borders */
+  --color-border-light: #e7e2da;/* card borders */
+  --color-tag-bg: #f4f1ec;      /* project tag background */
+
+  /* Layout */
+  --container-max: 1080px;
 
   /* Typography */
   --font-body: 'Oswald', sans-serif;
   --font-heading: 'Roboto Condensed', sans-serif;
   --font-size-base: 16px;
   --font-size-body: 18px;
+  --font-size-display: clamp(2.25rem, 6vw, 3.5rem);
   --line-height: 1.5;
 
   /* Spacing scale */

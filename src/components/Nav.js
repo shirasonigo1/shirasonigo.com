@@ -34,11 +34,8 @@ const Nav = () => {
             Projects
           </Link>
         </li>
-        <li className={navLinkItem}>
-          <Link to="/blog" className={navLinkText} activeClassName={navLinkTextactive}>
-            Blog
-          </Link>
-        </li>
+        {/* Blog nav entry removed (Phase 4): the /blog page is still an unlisted
+            "Coming soon" placeholder, so it isn't advertised until it has content. */}
         <li className={navLinkItem}>
           <a href={CV} download className={navLinkText}>
             CV

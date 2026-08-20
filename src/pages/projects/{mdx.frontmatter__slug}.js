@@ -6,7 +6,9 @@ import Seo from '../../components/seo'
 import Gallery from '../../components/Gallery'
 import Video from '../../components/video'
 import Button from '../../components/ui/Button'
+import { TagList } from '../../components/ui/Tag'
 import { contentproject } from '../../components/layout.module.css'
+import { projectMeta, projectStack } from '../../components/ui/ui.module.css'
 
 /*
  * Project detail template (Phase 2 — rewritten).
@@ -55,7 +57,16 @@ const Project = ({ data, children }) => {
 
   return (
     <Layout pageTitle={frontmatter.title}>
-      <p>{frontmatter.year}</p>
+      {/* Project header: year + optional role, tags, and optional tech stack.
+          role/stack are optional frontmatter — rendered only when present. */}
+      <div className={projectMeta}>
+        <span>{frontmatter.year}</span>
+        {frontmatter.role && <span>· {frontmatter.role}</span>}
+      </div>
+      <TagList tags={frontmatter.tags} />
+      {frontmatter.stack && frontmatter.stack.length > 0 && (
+        <p className={projectStack}>Stack: {frontmatter.stack.join(', ')}</p>
+      )}
 
       <div className={contentproject}>
         <MDXProvider components={components}>{children}</MDXProvider>
@@ -88,6 +99,9 @@ export const query = graphql`
       frontmatter {
         title
         year
+        role
+        stack
+        tags
         linkedin_post
         videoSrcURL
         videoTitle

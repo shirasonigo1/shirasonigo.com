@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { TagList } from "./ui/Tag"
-import { card, cardImage, cardTitle, cardTitleLink, cardMeta } from "./ui/ui.module.css"
+import { card, cardImage, cardBody, cardTitle, cardTitleLink, cardMeta } from "./ui/ui.module.css"
 
 /*
  * ProjectCard (Phase 3).
@@ -16,21 +16,25 @@ const ProjectCard = ({ node }) => {
   return (
     <article className={card}>
       {image && (
-        <GatsbyImage
-          image={image}
-          alt={frontmatter.title}
-          className={cardImage}
-          imgStyle={{ objectFit: "cover" }}
-        />
-      )}
-      <h2 className={cardTitle}>
-        <Link className={cardTitleLink} to={`/projects/${frontmatter.slug}`}>
-          {frontmatter.title}
+        <Link to={`/projects/${frontmatter.slug}`} aria-label={frontmatter.title}>
+          <GatsbyImage
+            image={image}
+            alt={frontmatter.title}
+            className={cardImage}
+            imgStyle={{ objectFit: "cover" }}
+          />
         </Link>
-      </h2>
-      <p className={cardMeta}>Posted: {frontmatter.year}</p>
-      <p>{excerpt}</p>
-      <TagList tags={frontmatter.tags} />
+      )}
+      <div className={cardBody}>
+        <h2 className={cardTitle}>
+          <Link className={cardTitleLink} to={`/projects/${frontmatter.slug}`}>
+            {frontmatter.title}
+          </Link>
+        </h2>
+        <p className={cardMeta}>{frontmatter.year}</p>
+        <p>{excerpt}</p>
+        <TagList tags={frontmatter.tags} />
+      </div>
     </article>
   )
 }
