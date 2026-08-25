@@ -1,172 +1,107 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
 import Layout from '../../components/layout'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Zoom } from "react-slideshow-image";
 import Seo from '../../components/seo'
-import { Link, graphql } from 'gatsby'  
-import "react-slideshow-image/dist/styles.css";
-import {contentproject} from '../../components/layout.module.css'
-import Video from "../../components/video"
+import Gallery from '../../components/Gallery'
+import Video from '../../components/video'
+import Button from '../../components/ui/Button'
+import { TagList } from '../../components/ui/Tag'
+import { contentproject } from '../../components/layout.module.css'
+import { projectMeta, projectStack } from '../../components/ui/ui.module.css'
 
-const zoomOutProperties = {
-  duration: 5000,
-  transitionDuration: 500,
-  infinite: true,
-  indicators: true,
-  scale: 1,
-  arrows: true,
-};
+/*
+ * Project detail template (Phase 2 — rewritten).
+ *
+ * The previous version re-parsed the raw MDX `body` string by splitting on
+ * "## Slider" and injected the result with dangerouslySetInnerHTML, so markdown
+ * (bold, lists, links) was never actually rendered. That fragile parser is gone.
+ *
+ * Now the MDX is rendered natively through `children` + MDXProvider. Content still
+ * uses the "## Slider N" heading convention to place galleries: the h2 override
+ * below detects those headings and renders the matching frontmatter `sliders[N-1]`
+ * gallery in-flow. Any text after the colon (e.g. "## Slider 1: ClockMan") becomes
+ * the visible section heading; a bare "## Slider N:" renders just the gallery.
+ * Every heading maps 1:1 to a gallery, so no slider is dropped.
+ */
+const SLIDER_HEADING = /^\s*slider\s*(\d+)\s*:?\s*(.*)$/i
+
+// Flatten heading children down to their text so we can match the convention.
+const headingText = (children) =>
+  React.Children.toArray(children)
+    .map((child) => (typeof child === 'string' ? child : ''))
+    .join('')
 
 const Project = ({ data, children }) => {
-  const sliders = data.mdx.frontmatter.sliders
-  const content = data.mdx.body
-  
-  // Function to split content into sections based on slider headers
-  const splitContentIntoSections = (content) => {
-    const sections = []
-    let currentSection = {
-      isBeforeSliders: true,
-      content: []
-    }
-    
-    const contentLines = content.split('\n')
-    
-    contentLines.forEach((line) => {
-      if (line.startsWith('## Slider')) {
-        if (currentSection.isBeforeSliders) {
-          sections.push({ type: 'intro', content: currentSection.content.join('\n') })
-          currentSection = {
-            type: 'slider',
-            title: line,
-            content: []
-          }
-        } else {
-          sections.push({
-            type: 'slider',
-            title: currentSection.title,
-            content: currentSection.content.join('\n')
-          })
-          currentSection = {
-            type: 'slider',
-            title: line,
-            content: []
-          }
-        }
-      } else if (line.startsWith('#') && currentSection.type === 'slider') {
-        // Start of a new non-slider section
-        sections.push({
-          type: 'slider',
-          title: currentSection.title,
-          content: currentSection.content.join('\n')
-        })
-        currentSection = {
-          type: 'outro',
-          content: [line]
-        }
-      } else {
-        currentSection.content.push(line)
+  const { frontmatter } = data.mdx
+  const sliders = frontmatter.sliders || []
+
+  // MDX component overrides. Defined here so the h2 handler can close over
+  // `sliders` and swap "## Slider N" headings for the corresponding gallery.
+  const components = {
+    h2: (props) => {
+      const match = headingText(props.children).match(SLIDER_HEADING)
+      if (match) {
+        const index = parseInt(match[1], 10) - 1
+        const subtitle = match[2].trim()
+        return (
+          <>
+            <Gallery images={sliders[index]?.images} />
+            {subtitle ? <h2>{subtitle}</h2> : null}
+          </>
+        )
       }
-    })
-    
-    // Add the last section
-    if (currentSection.content.length > 0) {
-      sections.push({
-        type: currentSection.type || 'outro',
-        ...(currentSection.title && { title: currentSection.title }),
-        content: currentSection.content.join('\n')
-      })
-    }
-    
-    return sections
+      return <h2 {...props} />
+    },
   }
 
-  const sections = splitContentIntoSections(content)
-
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>{data.mdx.frontmatter.year}</p>
-      <div className='project_post'>
-        {/* Display intro content */}
-        <div className={contentproject}>
-          {sections.find(section => section.type === 'intro')?.content}
-        </div>
-        
-        {/* Display sliders with their corresponding content */}
-        {sliders?.map((slider, index) => (
-          <div key={index} className='slider-section'>
-            <div className='slider'>
-              <Zoom {...zoomOutProperties}>
-                {slider.images.map((image, imgIndex) => {
-                  const sliderImage = getImage(image)
-                  return (
-                    <GatsbyImage
-                      key={imgIndex}
-                      alt={`slider image ${imgIndex + 1}`}
-                      image={sliderImage}
-                      className='slider_image'
-                      objectPosition={'center'}
-                      style={{ maxHeight: '100vh', width: 'auto' }}
-                    />
-                  )
-                })}
-              </Zoom>
-            </div>
-            
-            {/* Display the corresponding section content */}
-            {sections.filter(section => section.type === 'slider')[index] && (
-              <div className={contentproject}>
-                <div dangerouslySetInnerHTML={{ 
-                  __html: sections.filter(section => section.type === 'slider')[index].content 
-                }} />
-              </div>
-            )}
-          </div>
-        ))}
-        
-        {/* Display outro content */}
-        <div className="final-content">
-          {sections.find(section => section.type === 'outro')?.content}
-        </div>
-        {}
-        {data.mdx.frontmatter.linkedin_post && (
-        <Link
-          style={{ margin: '0', color: 'black', fontWeight: 'normal' }}
-          to={data.mdx.frontmatter.linkedin_post}
-        >
-          Linkedin post
-        </Link>
-      )}
-      {data.mdx.frontmatter.GithubLink && (
-        <Link
-          style={{ margin: '0', color: 'black', fontWeight: 'normal' }}
-          to={data.mdx.frontmatter.GithubLink}
-        >
-          <b>GitHub repository</b>
-        </Link>
-      )}
-
-
-
-{data.mdx.frontmatter.videoSrcURL?.map((url, index) => (
-  <Video 
-    key={index}
-    videoSrcURL={url}
-    videoTitle={data.mdx.frontmatter.videoTitle}
-  />
-))}
-
+    <Layout pageTitle={frontmatter.title}>
+      {/* Project header: year + optional role, tags, and optional tech stack.
+          role/stack are optional frontmatter — rendered only when present. */}
+      <div className={projectMeta}>
+        <span>{frontmatter.year}</span>
+        {frontmatter.role && <span>· {frontmatter.role}</span>}
       </div>
+      <TagList tags={frontmatter.tags} />
+      {frontmatter.stack && frontmatter.stack.length > 0 && (
+        <p className={projectStack}>Stack: {frontmatter.stack.join(', ')}</p>
+      )}
+
+      <div className={contentproject}>
+        <MDXProvider components={components}>{children}</MDXProvider>
+      </div>
+
+      {/* External links use Button's <a> (Gatsby <Link> is for internal routes only). */}
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
+        {frontmatter.linkedin_post && (
+          <Button href={frontmatter.linkedin_post} target="_blank" rel="noopener noreferrer">
+            LinkedIn post
+          </Button>
+        )}
+        {frontmatter.GithubLink && (
+          <Button href={frontmatter.GithubLink} target="_blank" rel="noopener noreferrer">
+            GitHub repository
+          </Button>
+        )}
+      </div>
+
+      {frontmatter.videoSrcURL?.map((url, index) => (
+        <Video key={index} videoSrcURL={url} videoTitle={frontmatter.videoTitle} />
+      ))}
     </Layout>
   )
 }
 
 export const query = graphql`
   query($id: String) {
-    mdx(id: {eq: $id}) {
-      body
+    mdx(id: { eq: $id }) {
       frontmatter {
         title
         year
+        role
+        stack
+        tags
         linkedin_post
         videoSrcURL
         videoTitle
@@ -174,7 +109,7 @@ export const query = graphql`
         sliders {
           images {
             childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED, transformOptions: {fit: COVER, cropFocus: ATTENTION})
+              gatsbyImageData(layout: CONSTRAINED, transformOptions: { fit: COVER, cropFocus: ATTENTION })
             }
           }
         }
@@ -183,6 +118,8 @@ export const query = graphql`
   }
 `
 
-export const Head = ({ data }) => <Seo title={data.mdx.frontmatter.title} />
+export const Head = ({ data, location }) => (
+  <Seo title={data.mdx.frontmatter.title} pathname={location.pathname} />
+)
 
 export default Project

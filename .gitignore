@@ -2,5 +2,7 @@ node_modules/
 .cache/
 public
 .DS_Store
+**/.DS_Store
 yarn
+REDESIGN.md
 

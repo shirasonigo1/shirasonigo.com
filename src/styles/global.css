@@ -1,0 +1,42 @@
+/*
+ * Global base element styles (Phase 1).
+ * These bare element selectors (body, main, p) previously lived inside
+ * layout.module.css, where CSS Modules does NOT scope element selectors — so they
+ * leaked globally anyway. They are moved here to make that global intent explicit.
+ * Values are preserved from the original to keep this phase visually identical.
+ */
+
+body {
+  margin: auto;
+  background-color: var(--color-bg);
+}
+
+main {
+  padding: 1rem 6rem;
+  margin: 0 0 auto;
+}
+
+p {
+  margin-bottom: 1.5em;
+  font-size: var(--font-size-body);
+}
+
+/* Responsive main padding (moved out of layout.module.css media queries) */
+@media screen and (max-width: 1024px) {
+  main {
+    padding: 1rem;
+    margin: 0 0 auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  main {
+    padding: 1rem;
+    margin: 0 0 auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  main {
+    padding: 1rem;
+    margin: 0 0 auto;
+  }
+}

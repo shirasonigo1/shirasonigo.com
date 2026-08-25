@@ -1,0 +1,40 @@
+/*
+ * Design tokens (Phase 1).
+ * Single source of truth for color, typography, spacing and radius.
+ * Values mirror the original hard-coded styles so the visual output is unchanged;
+ * later phases restyle by editing these variables rather than scattered literals.
+ */
+:root {
+  /* Color — Phase 4: warm neutral canvas with a single burnt-clay accent
+     that nods to Shira's craft/design work while staying professional. */
+  --color-bg: #efece6;          /* warm page background */
+  --color-surface: #ffffff;     /* container "sheet" surface */
+  --color-text: #1c1c1c;        /* body text / ink */
+  --color-muted: #6b6b6b;       /* secondary text / tags */
+  --color-accent: #9a3412;      /* burnt-clay accent for links/hover/rules */
+  --color-border: #e2ddd5;      /* nav / footer borders */
+  --color-border-light: #e7e2da;/* card borders */
+  --color-tag-bg: #f4f1ec;      /* project tag background */
+
+  /* Layout */
+  --container-max: 1080px;
+
+  /* Typography */
+  --font-body: 'Oswald', sans-serif;
+  --font-heading: 'Roboto Condensed', sans-serif;
+  --font-size-base: 16px;
+  --font-size-body: 18px;
+  --font-size-display: clamp(2.25rem, 6vw, 3.5rem);
+  --line-height: 1.5;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 6rem;
+  --space-12: 12rem;
+
+  /* Radius */
+  --radius: 8px;
+}
