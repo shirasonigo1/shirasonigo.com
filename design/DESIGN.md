@@ -104,7 +104,7 @@ the opening sentence carries the page.
 ## Images
 
 All imagery is a labelled placeholder. Replace each with real photography; keep the
-aspect ratio so nothing reflows.
+aspect ratio so nothing reflows. 
 
 | Slot | Where | Ratio | Suggested |
 |---|---|---|---|
