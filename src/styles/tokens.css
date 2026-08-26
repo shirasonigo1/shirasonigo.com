@@ -38,3 +38,47 @@
   /* Radius */
   --radius: 8px;
 }
+
+/*
+ * Work / Projects page design system ("Warm editorial").
+ * Scoped to .work-theme (applied on the Work page root) rather than :root so it
+ * cannot restyle the rest of the site — notably --radius, which is 8px globally
+ * but 4px here. Values are verbatim from design/System.dc.html. Everything
+ * downstream references these tokens, never the raw hex.
+ */
+.work-theme {
+  /* surfaces */
+  --paper: #f4f2ed;         /* page ground */
+  --card: #fbfaf7;          /* standard card surface */
+  --card-feature: #efeae3;  /* featured card only */
+  --card-feature-line: #e3dcd1; /* featured card border (design-exact) */
+  --well: #eae5dc;          /* image placeholder ground */
+  --well-line: #dcd4c8;     /* image placeholder border */
+
+  /* ink */
+  --ink: #1c1917;           /* headings, project titles */
+  --ink-strong: #44403c;    /* standfirst (featured + wide) */
+  --ink-body: #57534e;      /* descriptions, nav */
+  --ink-muted: #736c65;     /* eyebrows, years, meta — darkened from the spec's
+                               #8A827A (3.38:1 on paper, fails AA) to ~4.6:1 */
+  --ink-faint: #a09788;     /* placeholder dimensions, footer meta (decorative) */
+
+  --accent: #9a3412;        /* links, arrows, active underline */
+  --accent-hover: #7c2a0e;  /* darker accent for link hover */
+  --hairline: #e4ded4;      /* every border and rule, always 1px */
+  --filter-line: #ddd6cb;   /* resting filter chip outline */
+
+  /* tag tints, keyed to project family */
+  --tag-sand: #e6dfd4;      /* inclusive design / product */
+  --tag-stone: #e7e4e0;     /* systems / engineering */
+  --tag-clay: #ede5dc;      /* speculative / art & culture */
+  --tag-ink: #6b635a;       /* tag label colour */
+
+  /* type */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  /* radius */
+  --radius: 4px;            /* cards (scoped — global stays 8px) */
+  --radius-sm: 3px;         /* chips, tags, image wells */
+}

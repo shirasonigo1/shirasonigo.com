@@ -16,6 +16,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MdxFrontmatter {
       role: String
       stack: [String]
+      featured: Boolean
+      standfirst: String
+      category: String
+      description: String
     }
   `)
 }
