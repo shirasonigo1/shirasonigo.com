@@ -11,11 +11,16 @@ import "@fontsource/oswald/400.css";
 import "@fontsource/oswald/700.css";
 import "@fontsource/roboto-condensed/400.css";
 
-// Work / Projects page type system: Newsreader (display) + Archivo (functional),
-// self-hosted (no render-blocking Google Fonts link).
+// Newsreader (display) — shared by the home and Work redesigns.
 import "@fontsource/newsreader/300.css";
+import "@fontsource/newsreader/300-italic.css";
 import "@fontsource/newsreader/400.css";
 import "@fontsource/newsreader/400-italic.css";
+// Home redesign functional type: Jost.
+import "@fontsource/jost/300.css";
+import "@fontsource/jost/400.css";
+import "@fontsource/jost/500.css";
+// Work page functional type: Archivo.
 import "@fontsource/archivo/400.css";
 import "@fontsource/archivo/500.css";
 

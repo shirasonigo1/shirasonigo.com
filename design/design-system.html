@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shira Sonigo — design system</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,300&family=Jost:wght@300;400;500&display=swap">
+  <style>
+    body {
+      margin: 0;
+      background: #F7F3EC;
+      font-family: 'Jost', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+      color: #4A443C;
+      -webkit-font-smoothing: antialiased;
+      text-wrap: pretty;
+    }
+    a { color: #8F4A2A; text-decoration: none; }
+    a:hover { color: #6E3620; }
+    .serif { font-family: 'Newsreader', 'Iowan Old Style', Georgia, serif; }
+  </style>
+</head>
+<body>
+<div style="background: #F7F3EC; padding: 56px 56px 64px;">
+
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+    <div style="width: 26px; height: 1px; background: #8F4A2A;"></div>
+    <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #665D50;">Design system</div>
+  </div>
+  <h1 class="serif" style="margin: 0 0 8px; font-size: 44px; line-height: 1.05; font-weight: 300; color: #1A1815; letter-spacing: -0.01em;">Foundations</h1>
+  <p style="margin: 0 0 44px; font-size: 15.5px; line-height: 1.6; color: #665D50; max-width: 60ch;">Warm neutral, editorial. No display headline &mdash; no portrait; the opening sentence carries the page and the positioning sits in a small tracked label. One serif for voice, one geometric sans for everything functional. Generous whitespace; hairline rules instead of heavy borders.</p>
+
+  <!-- TYPE -->
+  <div style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 36px; padding-bottom: 34px; border-bottom: 1px solid #E3DACE;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #665D50;">Typography</div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #665D50;">Newsreader (display)<br>Jost (body &amp; UI)</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Hero lead / 42<br><span style="color: #8F8474;">26 mobile</span></div>
+        <div class="serif" style="font-size: 34px; line-height: 1.34; font-weight: 300; color: #1A1815; max-width: 30ch;">The opening sentence is the largest type on the page.</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Section / 46<br><span style="color: #8F8474;">shown at 38</span></div>
+        <div class="serif" style="font-size: 38px; line-height: 1.05; font-weight: 300; color: #1A1815;">Selected work</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Project / 30&ndash;40</div>
+        <div class="serif" style="font-size: 30px; line-height: 1.1; font-weight: 300; color: #1A1815;">The Inner Shoe</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Lead / 18</div>
+        <div style="font-size: 18px; line-height: 1.62; color: #4A443C;">Software engineer and practice designer based in London.</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Body / 16<br><span style="color: #8F8474;">15.5 mobile</span></div>
+        <div style="font-size: 16px; line-height: 1.68; color: #4A443C;">Body copy sits at 16px with 1.68 leading and a 46-character measure.</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Meta / 13</div>
+        <div style="font-size: 13px; line-height: 1.5; color: #665D50;">2025 &middot; Regenerative material</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Eyebrow / 11</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #665D50;">Selected work</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 22px;">
+        <div style="width: 130px; flex-shrink: 0; font-size: 12px; color: #665D50;">Label / 11.5<br><span style="color: #8F8474;">0.3em tracking</span></div>
+        <div style="font-size: 11.5px; letter-spacing: 0.3em; text-transform: uppercase; color: #35302A;">Engineer <span style="color: #8F4A2A;">&times;</span> Designer</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLOR -->
+  <div style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 36px; padding: 34px 0; border-bottom: 1px solid #E3DACE;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #665D50;">Palette</div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #665D50;">Warm neutrals, one terracotta accent carried over from the current site (#9A3412), warmed and desaturated.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #F7F3EC; border: 1px solid #E3DACE;"></div>
+        <div style="font-size: 13px; color: #35302A;">Page</div>
+        <div style="font-size: 12px; color: #665D50;">#F7F3EC</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #EFE9DF; border: 1px solid #E3DACE;"></div>
+        <div style="font-size: 13px; color: #35302A;">Panel</div>
+        <div style="font-size: 12px; color: #665D50;">#EFE9DF</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #E4DBCC; border: 1px solid #DBD0BE;"></div>
+        <div style="font-size: 13px; color: #35302A;">Image well</div>
+        <div style="font-size: 12px; color: #665D50;">#E4DBCC</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #E7DDCF; border: 1px solid #DED4C5;"></div>
+        <div style="font-size: 13px; color: #35302A;">Chip</div>
+        <div style="font-size: 12px; color: #665D50;">#E7DDCF</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #1A1815;"></div>
+        <div style="font-size: 13px; color: #35302A;">Ink</div>
+        <div style="font-size: 12px; color: #665D50;">#1A1815</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #4A443C;"></div>
+        <div style="font-size: 13px; color: #35302A;">Body</div>
+        <div style="font-size: 12px; color: #665D50;">#4A443C</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #665D50;"></div>
+        <div style="font-size: 13px; color: #35302A;">Muted</div>
+        <div style="font-size: 12px; color: #665D50;">#665D50</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #8F4A2A;"></div>
+        <div style="font-size: 13px; color: #35302A;">Accent</div>
+        <div style="font-size: 12px; color: #665D50;">#8F4A2A</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #ECE5D9; border: 1px solid #E3DACE;"></div>
+        <div style="font-size: 13px; color: #35302A;">Panel, inset</div>
+        <div style="font-size: 12px; color: #665D50;">#ECE5D9</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #E3DACE;"></div>
+        <div style="font-size: 13px; color: #35302A;">Hairline</div>
+        <div style="font-size: 12px; color: #665D50;">#E3DACE</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="height: 72px; border-radius: 8px; background: #5C5348;"></div>
+        <div style="font-size: 13px; color: #35302A;">Caption</div>
+        <div style="font-size: 12px; color: #665D50;">#5C5348</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 36px; padding: 34px 0; border-bottom: 1px solid #E3DACE;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #665D50;">Components</div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #665D50;">Pill actions, hairline chips, underlined text links.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 26px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
+        <a href="#" style="display: flex; align-items: center; gap: 10px; background: #1A1815; color: #F7F3EC; font-size: 15px; padding: 15px 26px; border-radius: 999px;">
+          <span>Primary action</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+        </a>
+        <a href="#" style="display: flex; align-items: center; gap: 10px; color: #1A1815; font-size: 15px; padding: 14px 24px; border: 1px solid #D8CCB9; border-radius: 999px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 20h16"></path></svg>
+          <span>Secondary</span>
+        </a>
+        <a href="#" style="display: flex; align-items: center; gap: 8px; font-size: 15px; color: #1A1815;">
+          <span style="border-bottom: 1px solid #8F4A2A; padding-bottom: 3px;">Text link</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+        </a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <div style="font-size: 13px; color: #5C554B; background: #E7DDCF; border-radius: 999px; padding: 7px 15px;">IDE</div>
+        <div style="font-size: 13px; color: #5C554B; background: #E7DDCF; border-radius: 999px; padding: 7px 15px;">Super Green</div>
+        <div style="font-size: 13px; color: #5C554B; background: #E7DDCF; border-radius: 999px; padding: 7px 15px;">Regenerative material</div>
+        <div style="font-size: 13px; color: #5C554B; background: #E7DDCF; border-radius: 999px; padding: 7px 15px;">Speculative design</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="background: #EFE9DF; border: 1px solid #E3DACE; border-radius: 16px; padding: 18px;">
+          <div style="position: relative; background: #E4DBCC; border: 1px solid #DBD0BE; border-radius: 10px; height: 132px; display: flex; align-items: center; justify-content: center;">
+            <div style="position: absolute; top: 11px; left: 13px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #5F5648;">IMG</div>
+            <div style="font-size: 13px; color: #5C5348;">Labelled image container</div>
+          </div>
+          <div style="font-size: 12.5px; color: #665D50; margin: 16px 0 10px;">Year &middot; Category</div>
+          <div class="serif" style="font-size: 26px; line-height: 1.1; font-weight: 300; color: #1A1815;">Project card</div>
+          <div style="font-size: 14.5px; line-height: 1.6; color: #4A443C; margin-top: 10px;">Card padding 18&ndash;26px, radius 16, image well radius 10, ratio 3:2 or 4:3.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #ECE5D9; border: 1px solid #E3DACE; border-radius: 16px; padding: 24px;">
+          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #665D50;">Rules of thumb</div>
+          <div style="font-size: 14.5px; line-height: 1.68; color: #4A443C;">Section rhythm 120px desktop / 62px mobile. Container 1180px, gutter 40px. Hairlines #E3DACE, never heavier than 1px. Radii: 16 panel, 10 image, 999 action. Body measure never past 46ch. Minimum tap target 44px. Every image is a labelled container until real photography lands.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE SLOTS -->
+  <div style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 36px; padding: 34px 0 0;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #665D50;">Image slots</div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #665D50;">What to send me, and where each one lands.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0;">
+      <div style="display: grid; grid-template-columns: 92px 1fr 150px; gap: 18px; padding: 14px 0; border-bottom: 1px solid #E3DACE;">
+        <div style="font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #665D50;">IMG 01</div>
+        <div style="font-size: 14.5px; color: #35302A;">The Inner Shoe &mdash; featured card</div>
+        <div style="font-size: 13px; color: #665D50;">4:3 &middot; ~1600&times;1200</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 92px 1fr 150px; gap: 18px; padding: 14px 0; border-bottom: 1px solid #E3DACE;">
+        <div style="font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #665D50;">IMG 02</div>
+        <div style="font-size: 14.5px; color: #35302A;">GrazeIQ &mdash; two-up card, left</div>
+        <div style="font-size: 13px; color: #665D50;">3:2 &middot; ~1400&times;933</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 92px 1fr 150px; gap: 18px; padding: 14px 0;">
+        <div style="font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #665D50;">IMG 03</div>
+        <div style="font-size: 14.5px; color: #35302A;">FlatPack &mdash; two-up card, right</div>
+        <div style="font-size: 13px; color: #665D50;">3:2 &middot; ~1400&times;933</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
