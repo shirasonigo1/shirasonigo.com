@@ -11,5 +11,12 @@ import "@fontsource/oswald/400.css";
 import "@fontsource/oswald/700.css";
 import "@fontsource/roboto-condensed/400.css";
 
+// Home redesign type system: Newsreader (voice) + Jost (functional).
+import "@fontsource/newsreader/300.css";
+import "@fontsource/newsreader/300-italic.css";
+import "@fontsource/jost/300.css";
+import "@fontsource/jost/400.css";
+import "@fontsource/jost/500.css";
+
 import "./src/styles/tokens.css";
 import "./src/styles/global.css";

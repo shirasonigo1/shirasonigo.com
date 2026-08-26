@@ -1,37 +1,30 @@
 import * as React from 'react'
-import Layout from '../components/layout'
 import Seo from '../components/seo'
-import Button from '../components/ui/Button'
-import { herodescription } from '../components/layout.module.css'
+import HomeNav from '../components/home/HomeNav'
+import Hero from '../components/home/Hero'
+import SelectedWork from '../components/home/SelectedWork'
+import AboutStrip from '../components/home/AboutStrip'
+import ContactCTA from '../components/home/ContactCTA'
+import HomeFooter from '../components/home/HomeFooter'
+import * as s from '../components/home/home.module.css'
 
 /*
- * Home (Phase 4 redesign).
- * Leads with the Engineer × Designer positioning as the page title, keeps
- * Shira's own copy, and adds a clear call-to-action into the work.
+ * Home page (redesign).
+ * Deliberately does NOT use the shared <Layout>: this page has its own nav,
+ * footer, palette and type system per the design references. Every other route
+ * still uses Layout, so routing and the rest of the site are unchanged. Design
+ * tokens are scoped to the .page wrapper so nothing leaks out.
  */
-const IndexPage = () => {
-  return (
-    <Layout pageTitle="Engineer × Designer">
-      <div className={herodescription}>
-        I have a passion for observing the world around me and finding new ways to tell
-        stories. I'm a Software Engineer and a practice Designer navigating the intersection
-        of technology, creativity, and meaningful impact.
-      </div>
-      <div className={herodescription}>
-        Beyond my work, I enjoy long walks, reading life stories and science books, cooking,
-        and spending time with my family and friends.
-      </div>
-      <div className={herodescription}>
-        This website is my new project! With the vision for it to be a collection of my
-        thoughts, projects, and passions—a space where I share my notes, ideas, and
-        reflections on life's ticking moments. Feel free to explore and connect!
-      </div>
-      <div style={{ marginTop: '1.5rem' }}>
-        <Button to="/projects">View my work →</Button>
-      </div>
-    </Layout>
-  )
-}
+const IndexPage = () => (
+  <div className={s.page}>
+    <HomeNav />
+    <Hero />
+    <SelectedWork />
+    <AboutStrip />
+    <ContactCTA />
+    <HomeFooter />
+  </div>
+)
 
 export const Head = ({ location }) => <Seo title="Shira Sonigo" pathname={location.pathname} />
 

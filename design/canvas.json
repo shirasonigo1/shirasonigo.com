@@ -1,0 +1,12 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 2900, "title": "Work — desktop" },
+    { "file": "Mobile.dc.html", "x": 1560, "y": 0, "w": 390, "h": 3080, "title": "Work — mobile" },
+    { "file": "System.dc.html", "x": 2080, "y": 0, "w": 1100, "h": 2180, "title": "Design system" }
+  ],
+  "annotations": [
+    { "id": "note-brief", "x": 0, "y": -190, "w": 620, "text": "Work page — warm editorial direction.\nEvery image is a labelled placeholder with the ratio it expects; drop your real photography straight in.\nProjects and copy are drawn from shirasonigo.com plus CuLa. Terracotta #9A3412 carried over from your current site." },
+    { "id": "note-system", "x": 2080, "y": -190, "w": 500, "text": "The rules behind the two pages. Change a value here and mirror it into the artboards — this sheet is the reference, not the source." }
+  ],
+  "launch": { "view": "canvas" }
+}

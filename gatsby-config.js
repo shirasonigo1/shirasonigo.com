@@ -12,20 +12,11 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    // Phase 5: generate sitemap.xml and a web manifest (PWA/install metadata).
+    // Phase 5: generate sitemap.xml for SEO.
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        name: `Shira Sonigo`,
-        short_name: `Shira Sonigo`,
-        start_url: `/`,
-        background_color: `#efece6`,
-        theme_color: `#9a3412`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`,
-      },
-    },
+    // gatsby-plugin-manifest removed: it requires an icon and would generate
+    // favicon/apple-touch-icon links. The tab is intentionally left blank
+    // (see the empty icon link injected in gatsby-ssr.js).
     {
       resolve: "gatsby-source-filesystem",
       options: {
