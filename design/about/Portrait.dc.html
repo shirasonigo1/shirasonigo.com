@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Archivo:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #F4F2ED; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; color: #1C1917; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; } a:hover { color: #9A3412; }
+    .eyebrow { font-size: 11.5px; letter-spacing: 0.17em; text-transform: uppercase; color: #8A827A; }
+    .opt { display: flex; flex-direction: column; gap: 16px; }
+    .oname { font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 400; margin: 0; }
+    .onote { font-size: 13.5px; line-height: 1.6; color: #57534E; margin: 0; }
+    .otag { font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #A09788; }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #F4F2ED; padding: 60px 60px 68px 60px; display: flex; flex-direction: column; gap: 44px;">
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="eyebrow">Portrait treatment &nbsp;·&nbsp; pick one</div>
+    <h1 style="font-family: 'Newsreader', Georgia, serif; font-size: 46px; font-weight: 300; line-height: 1.06; letter-spacing: -0.02em; margin: 0;">Three ways to sit the photograph on the page</h1>
+    <p style="font-size: 15.5px; line-height: 1.65; color: #57534E; margin: 0; max-width: 700px;">The backdrop of your headshot has been re-graded to the exact paper tone of the site, so in all three the seamless simply disappears &mdash; what differs is how much edge the photograph is allowed to keep.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px;">
+
+    <!-- A: soft bleed -->
+    <div class="opt">
+      <div style="position: relative; height: 430px; overflow: hidden; background: #F4F2ED;">
+        <img src="portrait.jpg" alt="Shira Sonigo" style="width: 100%; height: 100%; object-fit: cover; object-position: 52% 8%; display: block;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to right, #F4F2ED 0%, rgba(244,242,237,0.85) 11%, rgba(244,242,237,0) 44%);"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, #F4F2ED 0%, rgba(244,242,237,0.7) 10%, rgba(244,242,237,0) 32%);"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <p class="oname">A &mdash; Soft bleed</p>
+        <p class="onote">No frame at all. The photograph runs off the top and right of the page and dissolves into the paper on its two inner edges. The most editorial, and the most confident &mdash; it reads as part of the page rather than an element placed on it.</p>
+      </div>
+    </div>
+
+    <!-- B: arch -->
+    <div class="opt">
+      <div style="height: 430px; display: flex; align-items: flex-end; justify-content: center; background: #EFEAE3; border-radius: 3px;">
+        <div style="width: 76%; height: 92%; overflow: hidden; border-radius: 999px 999px 3px 3px;">
+          <img src="portrait.jpg" alt="Shira Sonigo" style="width: 100%; height: 100%; object-fit: cover; object-position: 52% 10%; display: block;">
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <div style="display: flex; align-items: baseline; gap: 12px;"><p class="oname">B &mdash; Arch</p><span class="otag">On the page now</span></div>
+        <p class="onote">A contained shape on the warm card tint. Quieter and more formal, and it borrows the arch motif that runs through a lot of craft and ceramics work. Safer, but it does put a frame between you and the reader.</p>
+      </div>
+    </div>
+
+    <!-- C: vignette -->
+    <div class="opt">
+      <div style="height: 430px; display: flex; align-items: center; justify-content: center; background: #F4F2ED;">
+        <div style="position: relative; width: 320px; height: 320px; border-radius: 999px; overflow: hidden;">
+          <img src="portrait.jpg" alt="Shira Sonigo" style="width: 100%; height: 100%; object-fit: cover; object-position: 52% 6%; display: block;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 46%, rgba(244,242,237,0) 58%, rgba(244,242,237,0.85) 84%, #F4F2ED 100%);"></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <p class="oname">C &mdash; Vignette</p>
+        <p class="onote">A soft circle with no hard edge, feathered all the way out. Warm and approachable, and the least demanding of space &mdash; but it shrinks you, and a round portrait reads more &ldquo;team page&rdquo; than &ldquo;practice&rdquo;.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="border-top: 1px solid #E4DED4; padding-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="font-size: 14px; font-weight: 500;">What was done to the file</div>
+      <div style="font-size: 12.5px; line-height: 1.65; color: #8A827A;">White point lifted, warm cast applied, then the seamless mapped onto <span style="color: #57534E;">#F4F2ED</span> exactly. Saturation pulled back 6% so the denim doesn&#39;t fight the terracotta accent.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="font-size: 14px; font-weight: 500;">Why it needs no blend mode</div>
+      <div style="font-size: 12.5px; line-height: 1.65; color: #8A827A;">Because the backdrop already <em>is</em> the page colour, the fades only have to soften the crop edge. No <span style="color: #57534E;">mix-blend-mode</span>, which keeps it predictable in print and in Safari.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="font-size: 14px; font-weight: 500;">If you re-shoot</div>
+      <div style="font-size: 12.5px; line-height: 1.65; color: #8A827A;">Shoot against a plain light seamless with even lighting and no vignette, and leave room above the head. Any backdrop can be re-graded to the paper tone the same way.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1200,"height":880}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

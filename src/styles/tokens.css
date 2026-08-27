@@ -67,6 +67,7 @@
   --accent-hover: #7c2a0e;  /* darker accent for link hover */
   --hairline: #e4ded4;      /* every border and rule, always 1px */
   --filter-line: #ddd6cb;   /* resting filter chip outline */
+  --btn-outline: #cfc7ba;   /* outline button border (About) */
 
   /* tag tints, keyed to project family */
   --tag-sand: #e6dfd4;      /* inclusive design / product */

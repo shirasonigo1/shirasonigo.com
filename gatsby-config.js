@@ -12,6 +12,10 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    // About page: journey / press / awards are data, sourced as JSON from
+    // content/about/ (already covered by the "content" filesystem source below)
+    // and queried via GraphQL.
+    "gatsby-transformer-json",
     // Phase 5: generate sitemap.xml for SEO.
     "gatsby-plugin-sitemap",
     // gatsby-plugin-manifest removed: it requires an icon and would generate
