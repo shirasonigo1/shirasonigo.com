@@ -1,0 +1,13 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 5560, "title": "Case study — desktop" },
+    { "file": "ProjectMobile.dc.html", "x": 1560, "y": 0, "w": 390, "h": 4700, "title": "Case study — mobile" },
+    { "file": "Blocks.dc.html", "x": 2080, "y": 0, "w": 1200, "h": 1720, "title": "Block library" }
+  ],
+  "annotations": [
+    { "id": "note-brief", "x": 0, "y": -210, "w": 660, "text": "Individual project template — Research / Development / Delivery.\nGeneric: every [BRACKET] is a slot, and the bracket text says what belongs there and roughly how long it should be, so the proportions here are honest rather than lorem.\nA sticky rail on the left tracks the three chapters; on mobile it becomes a sticky strip under the masthead." },
+    { "id": "note-blocks", "x": 2080, "y": -210, "w": 560, "text": "The desktop page is ONE arrangement of these blocks. Different projects need different arrangements — compose each chapter from whichever earn their place and delete the rest rather than filling them." },
+    { "id": "note-rail", "x": 2080, "y": 1830, "w": 560, "text": "Note the two rules at the bottom of this sheet: body text stops at 680px however wide the page gets, and every image earns a caption that says something the photograph doesn't." }
+  ],
+  "launch": { "view": "canvas" }
+}

@@ -1,0 +1,145 @@
+---
+title: "Sample Project"
+slug: "sample-project"
+year: "[YEAR]"
+discipline: "Product Design"
+standfirst: "A modular charging dock for shared e-bike fleets, built to survive years outdoors without ever needing a screwdriver."
+tags: ["Product Design", "Hardware", "Sustainability"]
+draft: true
+
+role: "Design and engineering"
+timeline: "[Month]–[Month] [Year]"
+team: "Solo"
+context: "[Course, client or self-initiated]"
+
+hero:
+  alt: "[The finished dock, mounted on a bike-share rack, photographed at dusk]"
+  caption: "[Caption — say what is happening in the photograph, not what it looks like.]"
+
+overview:
+  lede: "Shared e-bike docks fail in the same three ways every time, and every fix on the market makes the next repair harder, not easier."
+  body:
+    - "Field technicians across [X] bike-share operators told the same story: a dock breaks, the fix requires a full unit swap, and the swapped unit usually fails again within a season because the failure was never actually diagnosed. Nobody budgets for repair — only replacement."
+    - "What I made is a dock that opens with one captive fastener and tells the technician, before they even open it, which of the three usual failures they're looking at."
+
+glance:
+  - label: "Outcome"
+    value: "[X] docks deployed across two pilot cities"
+  - label: "Methods"
+    value: "Field interviews, teardown analysis, rapid prototyping"
+  - label: "Made with"
+    value: "Sheet aluminium, injection-moulded PC housing, ESP32"
+  - label: "Recognition"
+    value: "[Exhibition, award, publication — or delete this block]"
+
+chapters:
+  - { id: "research", number: "01", title: "Research" }
+  - { id: "development", number: "02", title: "Development" }
+  - { id: "delivery", number: "03", title: "Delivery" }
+
+card:
+  summary: "A modular charging dock built to survive years outdoors without a screwdriver."
+  featured: false
+  order: 99
+
+next: "the-inner-shoe"
+---
+
+<Chapter id="research" lead="What kept breaking in the field, and who I asked to find out.">
+
+I spent the first three weeks riding along with field technicians rather than reading fleet-operator complaint logs, because the logs only recorded what a dock's sensors could see — not what a technician could see with the housing open. I shadowed six repair callouts across two operators, photographed every failed unit before it was swapped, and kept the ones I could take apart back in the studio. By the fourth callout the pattern was already obvious; the rest of the research was making sure it held.
+
+<FigurePair>
+  <Figure src="./images/field-visit.jpg" alt="[A technician crouched beside an open dock housing, multimeter in hand, on a city street]" ratio="4:3" dimensions="1200 × 900" />
+  <Figure src="./images/teardown.jpg" alt="[A disassembled dock on a studio bench, its connector board and housing separated]" ratio="4:3" dimensions="1200 × 900" />
+</FigurePair>
+<Caption>Left: a live callout in [City]. Right: one of eleven failed units I took apart to find the actual point of failure, not just the symptom a fleet dashboard reported.</Caption>
+
+<MethodList>
+  <Method title="Ride-alongs">Six repair callouts across two operators, shadowed rather than scheduled, so I saw the failures technicians actually triage rather than the ones that make it into a ticket.</Method>
+  <Method title="Teardown log">Eleven failed units, photographed and catalogued before disassembly, then again at each layer of the housing.</Method>
+  <Method title="Technician interviews">Structured conversations with [X] technicians about what they check first, and what they've stopped bothering to check.</Method>
+</MethodList>
+
+<Insights>
+  <Insight title="Nobody diagnoses, they swap">
+    Every technician I shadowed replaced the whole unit rather than opening it, because opening it took longer than the swap and rarely told them anything useful anyway.
+  </Insight>
+  <Insight title="The connector fails, not the electronics">
+    Nine of eleven teardowns had healthy boards behind a corroded connector — the part everyone assumed was the failure was almost never actually it.
+  </Insight>
+  <Insight title="Repair budget doesn't exist, replacement budget does">
+    Every operator I spoke to had a swap-unit line item and nothing for diagnosis, which quietly decides what kind of product will ever get fixed instead of thrown away.
+  </Insight>
+</Insights>
+
+<PullQuote attribution="Field technician" context="Ride-along, second week">
+  I stopped opening them years ago. By the time I've got a screwdriver out I could've already swapped it and be at the next stop.
+</PullQuote>
+
+</Chapter>
+
+<Chapter id="development" lead="What I built, tore up, and built again — and what each round taught me.">
+
+Four rounds, each one testing a single question rather than the whole product at once: first whether a technician would even use an onboard diagnostic light, then whether the connector could survive a season outdoors, then whether the housing could be opened one-handed, then whether all three answers still held once assembled together.
+
+<ol>
+  <Iteration
+    n="01"
+    image="./images/proto-v1.jpg"
+    imageAlt="[First prototype: bare connector board with three status LEDs, no housing]"
+    changed="Bench-tested a three-LED status indicator wired straight to the connector, no housing yet — just to see if the failure signal was even legible to someone who wasn't me."
+    learned="Technicians read it correctly nine times out of ten without being told what the colours meant, which meant the signal itself was doing the work, not a manual."
+  />
+  <Iteration
+    n="02"
+    image="./images/proto-v2.jpg"
+    imageAlt="[Second prototype: connector housed in a sealed test rig for accelerated weathering]"
+    changed="Moved the connector into a sealed housing and ran it through six weeks of accelerated salt-fog and thermal cycling to chase the corrosion failure directly."
+    learned="The seal held, but the fastener holding it didn't — a standard screw corroded before the connector ever did, which sent me looking for a captive, corrosion-proof fastener instead."
+  />
+  <Iteration
+    n="03"
+    image="./images/proto-v3.jpg"
+    imageAlt="[Third prototype: full housing with a single captive quarter-turn fastener]"
+    changed="Replaced the screw with a captive quarter-turn fastener and timed how long it took a technician to open, diagnose and close the unit one-handed, gloves on."
+    learned="Under [X] seconds average, down from the four-plus minutes a full swap took — but two of five testers still reached for a tool out of habit before realising they didn't need one."
+  />
+</ol>
+
+<Figure src="./images/bench-detail.jpg" alt="[Close-up of the quarter-turn fastener mechanism mid-assembly, tools scattered on the bench]" bleed ratio="16:9" dimensions="2000 × 1125" />
+<Caption>The fastener mechanism at final scale — the part that took three rounds to get right, because it had to survive weather and still turn with a bare, cold hand.</Caption>
+
+<Media alt="[Screen recording of the one-handed open-diagnose-close sequence, filmed during usability testing]" caption="One of five test sessions, unedited — the pause before the fourth second is a tester checking for a tool they didn't need." />
+
+</Chapter>
+
+<Chapter id="delivery" lead="What shipped, and what it does for the technician holding it.">
+
+The final dock is three parts: a weatherproof housing, the diagnostic connector board with its three-state light, and the quarter-turn fastener that ties them together without a tool. A technician sees the light from the street, knows before they've touched it which of three problems they're looking at, and can confirm or rule it out in under [X] seconds.
+
+<Figure src="./images/final-hero.jpg" alt="[The finished dock mounted on a bike-share rack, housing closed, status light visible]" bleed ratio="8:5" dimensions="2000 × 1250" />
+<Caption>The closed housing, showing the status light and the quarter-turn fastener — the two things a technician actually looks for on approach.</Caption>
+
+<FigureGrid cols={3}>
+  <Figure src="./images/detail-connector.jpg" alt="[Close-up of the corrosion-resistant connector, housing open]" ratio="1:1" dimensions="900 × 900" />
+  <Figure src="./images/in-use.jpg" alt="[A technician closing the housing after a diagnosis, one hand]" ratio="1:1" dimensions="900 × 900" />
+  <Figure src="./images/detail-fastener.jpg" alt="[Close-up of the quarter-turn fastener in the open position]" ratio="1:1" dimensions="900 × 900" />
+</FigureGrid>
+
+<SidePanel
+  title="Materials"
+  items={[
+    { label: 'Housing', value: 'Injection-moulded polycarbonate, UV-stabilised' },
+    { label: 'Fastener', value: 'Marine-grade stainless quarter-turn' },
+    { label: 'Connector', value: 'Gold-plated, IP67-rated' },
+    { label: 'Board', value: 'ESP32, three-state RGB status LED' },
+  ]}
+/>
+
+<Closing
+  outcome="[X] docks deployed across two pilot operators; early field reports put average diagnosis time at under [X] seconds, down from the four-plus-minute full swap it replaced. Operators haven't yet reported whether repair actually happens more than replacement — that's the number that matters and it's too early to have it."
+  whatNext="I'd want a full season outdoors before trusting the weathering results — six weeks of accelerated testing is a reasonable proxy, not a substitute. I'd also want to test the fastener with a technician wearing thick winter gloves, which none of my five testers were."
+/>
+
+</Chapter>

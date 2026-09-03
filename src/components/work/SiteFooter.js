@@ -27,20 +27,12 @@ const Socials = () => (
   </div>
 )
 
-const CraftedLine = ({ withCopyright = false }) => (
-  <div className={s.craftedLine}>
-    <span>Crafted with</span>
-    <span className={s.heart}><Heart /></span>
-    <span>by Shira Sonigo{withCopyright ? '  ·  © 2026' : ''}</span>
-  </div>
-)
 
 const SiteFooter = () => (
   <footer className={s.footer}>
     {/* Desktop: copyright + crafted line left, nav + socials right */}
     <div className={s.footerLeft}>
       <div className={s.copyright}>© 2026 Shira Sonigo</div>
-      <CraftedLine />
     </div>
     <div className={s.footerRight}>
       <nav className={s.footerNav} aria-label="Footer">
@@ -61,7 +53,6 @@ const SiteFooter = () => (
         <a href="/#contact" className={s.footerLink}>Contact</a>
       </nav>
       <Socials />
-      <CraftedLine withCopyright />
     </div>
   </footer>
 )

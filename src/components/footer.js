@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer>
         <section className={footerSection}>
-            <div className="madeby">Crafted with ❤️ by Shira Sonigo</div>
+            <div className="madeby">Crafted by Shira Sonigo</div>
         </section>
 </footer>
   );

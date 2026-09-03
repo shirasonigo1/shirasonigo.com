@@ -13,7 +13,7 @@ const HomeFooter = () => (
     <div className={s.footerHairline} />
     <div className={s.footerRow}>
       <div className={s.copyright}>
-        © 2026 Shira Sonigo<span className={s.copyExtra}> · Crafted with care in London</span>
+        © 2026 Shira Sonigo<span className={s.copyExtra}></span>
       </div>
       <div className={s.footerRight}>
         <div className={s.footerLinks}>
