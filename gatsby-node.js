@@ -70,6 +70,34 @@ exports.createSchemaCustomization = ({ actions }) => {
       featured: Boolean
       order: Int
     }
+
+    # About-page JSON data (content/about/*.json). Declared so optional fields
+    # (notably url, which is null in every seeded placeholder row) stay queryable.
+    type JourneyJson implements Node {
+      order: Int
+      start: String
+      end: String
+      title: String
+      org: String
+      description: String
+    }
+    type PressJson implements Node {
+      order: Int
+      publication: String
+      title: String
+      year: String
+      url: String
+    }
+    type AwardsJson implements Node {
+      order: Int
+      name: String
+      whatFor: String
+      year: String
+      url: String
+    }
+    type AboutJson implements Node {
+      yearsBuilding: String
+    }
   `)
 }
 

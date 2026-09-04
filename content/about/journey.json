@@ -1,0 +1,42 @@
+[
+  {
+    "order": 1,
+    "start": "[YEAR]",
+    "end": "[YEAR]",
+    "title": "Software Engineering",
+    "org": "[COMPANY]",
+    "description": "Building large-scale systems and the infrastructure underneath them."
+  },
+  {
+    "order": 2,
+    "start": "[YEAR]",
+    "end": "[YEAR]",
+    "title": "[ROLE]",
+    "org": "[COMPANY]",
+    "description": "[ONE LINE ON WHAT YOU OWNED HERE]"
+  },
+  {
+    "order": 3,
+    "start": "[YEAR]",
+    "end": null,
+    "title": "Freelance Engineering",
+    "org": "Forter",
+    "description": "[ONE LINE ON THE FORTER WORK]"
+  },
+  {
+    "order": 4,
+    "start": "2024",
+    "end": "2026",
+    "title": "Innovation Design Engineering",
+    "org": "Imperial College London  ×  Royal College of Art",
+    "description": "Research, prototyping and design practice across inclusive design, materials and cyber-physical systems."
+  },
+  {
+    "order": 5,
+    "start": "Today",
+    "end": null,
+    "title": "Engineer & Designer",
+    "org": "London",
+    "description": "Making products at the intersection of technology, inclusion and craft — most recently CuLa."
+  }
+]

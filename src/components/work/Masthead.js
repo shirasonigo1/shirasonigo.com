@@ -11,10 +11,10 @@ import * as s from './work.module.css'
  * (#contact) — see note in the PR; there is no standalone contact route yet.
  */
 const NAV = [
-  { label: 'Work', to: '/projects', current: true },
-  { label: 'About', to: '/about' },
-  { label: 'CV', href: CV, download: true },
-  { label: 'Contact', href: '/#contact' },
+  { key: 'work', label: 'Work', to: '/projects' },
+  { key: 'about', label: 'About', to: '/about' },
+  { key: 'cv', label: 'CV', href: CV, download: true },
+  { key: 'contact', label: 'Contact', href: '/#contact' },
 ]
 
 const NavItem = ({ item, className }) => {
@@ -32,7 +32,7 @@ const NavItem = ({ item, className }) => {
   )
 }
 
-const Masthead = () => {
+const Masthead = ({ active = 'work' }) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -44,7 +44,7 @@ const Masthead = () => {
             <NavItem
               key={item.label}
               item={item}
-              className={item.current ? `${s.navLink} ${s.navLinkCurrent}` : s.navLink}
+              className={item.key === active ? `${s.navLink} ${s.navLinkCurrent}` : s.navLink}
             />
           ))}
         </nav>
