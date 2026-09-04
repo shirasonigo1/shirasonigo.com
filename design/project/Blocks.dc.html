@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&family=Archivo:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #F4F2ED; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; color: #1C1917; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; } a:hover { color: #9A3412; }
+    .eyebrow { font-size: 11.5px; letter-spacing: 0.17em; text-transform: uppercase; color: #8A827A; }
+    .ph { background: #EAE5DC; border: 1px solid #DCD4C8; border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+    .phl { font-size: 9.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #A9A093; }
+    .bk { display: flex; flex-direction: column; gap: 14px; }
+    .bkh { display: flex; align-items: baseline; gap: 12px; }
+    .bkn { font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 400; margin: 0; }
+    .bkw { font-size: 13px; line-height: 1.6; color: #57534E; margin: 0; }
+    .bkt { font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #B0A79A; }
+    .stage { background: #FBFAF7; border: 1px solid #E4DED4; border-radius: 4px; padding: 22px; }
+    .tl { height: 9px; border-radius: 2px; background: #E2DCD2; }
+    .tl.s { width: 55%; } .tl.m { width: 78%; } .tl.l { width: 94%; }
+    .tld { height: 13px; border-radius: 2px; background: #D6CEC2; width: 62%; }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #F4F2ED; padding: 60px 60px 68px 60px; display: flex; flex-direction: column; gap: 46px;">
+
+  <div style="display: flex; flex-direction: column; gap: 13px;">
+    <div class="eyebrow">Case study &nbsp;·&nbsp; block library</div>
+    <h1 style="font-family: 'Newsreader', Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">The pieces a case study is built from</h1>
+    <p style="font-size: 15.5px; line-height: 1.68; color: #57534E; margin: 0; max-width: 720px;">The template page is one arrangement of these. Every project needs a different arrangement &mdash; a materials project leans on image grids, a software project on the iteration rows. Compose each chapter from whichever of these earn their place, and delete the rest rather than filling them.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 44px;">
+
+    <div class="bk">
+      <div class="stage"><div class="ph" style="height: 130px;"><span class="phl">Full width</span></div><div style="height: 7px; border-radius: 2px; background: #E7E1D7; width: 46%; margin-top: 10px;"></div></div>
+      <div><div class="bkh"><p class="bkn">Full-width image</p><span class="bkt">Any chapter</span></div><p class="bkw">The hero, the finished object, the one process shot that carries a whole section. Use sparingly &mdash; three of these on a page and none of them lands.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;"><div class="ph" style="height: 130px;"><span class="phl">4:3</span></div><div class="ph" style="height: 130px;"><span class="phl">4:3</span></div></div><div style="height: 7px; border-radius: 2px; background: #E7E1D7; width: 46%; margin-top: 10px;"></div></div>
+      <div><div class="bkh"><p class="bkn">Image pair</p><span class="bkt">Research</span></div><p class="bkw">Two things that mean more together than apart &mdash; a context shot beside a detail, two participants, before and after.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;"><div class="ph" style="height: 106px;"><span class="phl">1:1</span></div><div class="ph" style="height: 106px;"><span class="phl">1:1</span></div><div class="ph" style="height: 106px;"><span class="phl">1:1</span></div></div></div>
+      <div><div class="bkh"><p class="bkn">Three-up grid</p><span class="bkt">Delivery</span></div><p class="bkw">Details, states, or variants of the finished thing. Square crops keep it calm; keep all three at the same distance from the subject.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;"><div class="ph" style="height: 130px;"><span class="phl">Image</span></div><div style="display: flex; flex-direction: column; gap: 7px;"><div class="tld"></div><div class="tl l"></div><div class="tl l"></div><div class="tl m"></div></div></div></div>
+      <div><div class="bkh"><p class="bkn">Image beside text</p><span class="bkt">Any chapter</span></div><p class="bkw">When the picture and the explanation need to be read together. Alternate the side down a long page so it doesn&#39;t march.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="border-left: 2px solid #9A3412; padding-left: 18px; display: flex; flex-direction: column; gap: 8px;"><div style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.4; color: #1C1917;">&ldquo;The line that changed how you saw the problem.&rdquo;</div><div style="font-size: 11.5px; color: #A09788;">Participant &nbsp;·&nbsp; home visit</div></div></div>
+      <div><div class="bkh"><p class="bkn">Pull quote</p><span class="bkt">Research</span></div><p class="bkw">Someone else&#39;s voice, at a size that stops the eye. One per chapter at most &mdash; it loses all its force the second time.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px;"><div style="background: #F4F2ED; border: 1px solid #E4DED4; border-radius: 3px; padding: 12px; display: flex; flex-direction: column; gap: 6px;"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 10px; color: #A09788;">01</div><div class="tld" style="width: 90%;"></div><div class="tl l"></div><div class="tl m"></div></div><div style="background: #F4F2ED; border: 1px solid #E4DED4; border-radius: 3px; padding: 12px; display: flex; flex-direction: column; gap: 6px;"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 10px; color: #A09788;">02</div><div class="tld" style="width: 90%;"></div><div class="tl l"></div><div class="tl m"></div></div><div style="background: #F4F2ED; border: 1px solid #E4DED4; border-radius: 3px; padding: 12px; display: flex; flex-direction: column; gap: 6px;"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 10px; color: #A09788;">03</div><div class="tld" style="width: 90%;"></div><div class="tl l"></div><div class="tl m"></div></div></div></div>
+      <div><div class="bkh"><p class="bkn">Insight cards</p><span class="bkt">Research</span></div><p class="bkw">The findings, separated so each can be read alone. Two or three &mdash; four is a list, and a list is not an insight.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: grid; grid-template-columns: 40px 120px minmax(0, 1fr); gap: 14px; align-items: start;"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; color: #C9C0B3; line-height: 1;">02</div><div class="ph" style="height: 96px;"><span class="phl">v2</span></div><div style="display: flex; flex-direction: column; gap: 9px;"><div style="font-size: 8.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #A09788;">What changed</div><div class="tl l"></div><div style="font-size: 8.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #A09788; margin-top: 4px;">What it taught us</div><div class="tl m"></div></div></div></div>
+      <div><div class="bkh"><p class="bkn">Iteration row</p><span class="bkt">Development</span></div><p class="bkw">The workhorse of the middle chapter. One row per version, each answering the same two questions &mdash; the repetition is what makes the progression readable.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px; gap: 16px;"><div style="display: flex; flex-direction: column; gap: 7px;"><div class="tld"></div><div class="tl l"></div><div class="tl l"></div><div class="tl m"></div></div><div style="border-left: 1px solid #E4DED4; padding-left: 14px; display: flex; flex-direction: column; gap: 9px;"><div style="font-size: 8.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #A09788;">At a glance</div><div class="tl m"></div><div class="tl s"></div><div class="tl m"></div></div></div></div>
+      <div><div class="bkh"><p class="bkn">Text with side panel</p><span class="bkt">Overview</span></div><p class="bkw">Prose beside the facts a reader might scan for instead of reading &mdash; role, methods, tools, recognition. Also good for a materials or spec list.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div style="display: flex; flex-direction: column; gap: 11px;"><div style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: baseline;"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 13px; color: #A09788;">01</div><div style="display: flex; flex-direction: column; gap: 5px;"><div class="tld" style="width: 44%;"></div><div class="tl l"></div></div></div><div style="height: 1px; background: #E4DED4;"></div><div style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: baseline;"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 13px; color: #A09788;">02</div><div style="display: flex; flex-direction: column; gap: 5px;"><div class="tld" style="width: 52%;"></div><div class="tl m"></div></div></div></div></div>
+      <div><div class="bkh"><p class="bkn">Numbered method list</p><span class="bkt">Research</span></div><p class="bkw">The steps you actually took, named. Cheaper than photographs and often clearer &mdash; useful when the research was conversations rather than objects.</p></div>
+    </div>
+
+    <div class="bk">
+      <div class="stage"><div class="ph" style="height: 130px; position: relative;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B3AA9D" stroke-width="1.1"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></div></div>
+      <div><div class="bkh"><p class="bkn">Video or interaction</p><span class="bkt">Development &nbsp;·&nbsp; Delivery</span></div><p class="bkw">For anything that only makes sense in motion &mdash; a mechanism, a sound, a screen flow. Give it a poster frame and never autoplay with sound.</p></div>
+    </div>
+
+  </div>
+
+  <div style="border-top: 1px solid #E0D9CD; padding-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 14px; font-weight: 500;">Rhythm</div><div style="font-size: 12.5px; line-height: 1.65; color: #8A827A;">Never two of the same block in a row. Alternate text-heavy and image-heavy so the page breathes, and let one image per chapter be markedly bigger than the rest.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 14px; font-weight: 500;">Measure</div><div style="font-size: 12.5px; line-height: 1.65; color: #8A827A;">Body text stops at 680px however wide the page gets. Images may run to the full content column, or break out to the page margin for a deliberate full-bleed moment.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 14px; font-weight: 500;">Captions</div><div style="font-size: 12.5px; line-height: 1.65; color: #8A827A;">Every image earns a caption that says something the photograph doesn&#39;t. If you can&#39;t write one, the image probably isn&#39;t needed.</div></div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1200,"height":1720}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

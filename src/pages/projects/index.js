@@ -127,7 +127,10 @@ const WorkPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { year: DESC } }) {
+    allMdx(
+      sort: { frontmatter: { year: DESC } }
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       nodes {
         id
         excerpt

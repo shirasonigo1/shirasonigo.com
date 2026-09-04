@@ -1,35 +1,113 @@
 ---
-title: "THE INNER SHOE"
+title: "The Inner Shoe"
 year: "2025"
 slug: "the-inner-shoe"
+discipline: "Product Design"
+standfirst: "Bicycle inner tubes, sourced from local bike shops and remade as footwear for rocky shores."
+tags: ["Sustainability", "Materials", "Product Design"]
+draft: false
+
+role: "Design and engineering"
+timeline: "Feb–March 2025"
+team: "Solo"
+context: "MA/MSc Innovation Design Engineering"
+
+hero:
+  image: "./images/shoeinbeach.png"
+  alt: "The finished Inner Shoe, made from upcycled black bicycle inner tube"
+
+overview:
+  lede: "Crafted from upcycled bicycle inner tubes sourced from local bike shops, the Inner Shoe is designed for walking comfortably on rocky shored. "
+  body:
+    - "For this individual project on the IDE SuperGreen module, I set out to design a shoe from upcycled bicycle inner tubes. As a cyclist, I kept noticing this material pile up as waste in bike shops. My goal was to repurpose the rubber in its existing form harnessing it's inherent qualities"
+    - "The result is a footwear made for walking comfortably on rocky shores, built without re-vulcanization, cutting, or harmful glues."
+
+glance:
+  - label: "Outcome"
+    value: "Sustainable shoe prototype"
+  - label: "Methods"
+    value: "Traditional weaving"
+  - label: "Made with"
+    value: "Upcycled natural-rubber bicycle inner tubes"
+
+
+chapters:
+  - { id: "material", number: "01", title: "The material" }
+  - { id: "process", number: "02", title: "The process" }
+  - { id: "outcome", number: "03", title: "The outcome" }
+
+# Flat legacy fields kept deliberately: the Work-page grid
+# (src/pages/projects/index.js) still reads hero_image / category /
+# standfirst, per content/projects/AUTHORING.md's migration note. Remove
+# once the Work listing reads the new `card` block.
 hero_image: "./images/hero.JPEG"
-category: "protfolio"
-hero_image_alt: "hero picture"
-hero_image_credit_text: "the-inner-shoe"
-tags: ["#IDE", "#SuperGreen", "#RegenerativeMaterial"]
-sliders:
-  - images:
-      - "./images/hero.JPEG"
-      - "./images/clay 33.jpg"
-      - "./images/me.jpg"
-      - "./images/process6.jpg"
-  - images:
-      - "./images/process1.jpg"
-      - "./images/process2.jpg"
-      - "./images/process5.jpg"
-      - "./images/scan133.jpg"
+hero_image_alt: "The finished Inner Shoe, made from upcycled black bicycle inner tube"
+category: "Sustainability"
+
+card:
+  summary: "Bicycle inner tubes remade as footwear for rocky shores."
+  image: "./images/hero.JPEG"
+  featured: false
+  order: 2
 ---
 
-Crafted from upcycled bicycle inner tubes sourced from local bike shops, the Inner Shoe is designed for walking comfortably on rocky beaches. 
+<Chapter id="material" lead="Embracing waste as a resource for growth, using
+simple methods with minimal transformation.">
 
-## Slider 1: 
+Tire waste is a global issue that poses
+significant risks to the environment, as
+well as human and wildlife health. 
+For years, discarded tires have been
+repurposed for shoemaking, a practice
+famously adopted by the Rarámuri (also
+known as the Tarahumara), an Indige-
+nous group from Mexico renowned for
+their long-distance running in rubber
+sandals.
+
+<Insights>
+  <Insight title="Pure natural rubber qualities">
+    Inner tubes are strong, flexible, anti-slip and non-biodegradable.
+  </Insight>
+  <Insight title="The value is in the intact tube">
+    Keeping the rubber whole preserves its integrity and avoids the toxic exposure that comes with re-processing it.
+  </Insight>
+</Insights>
+
+</Chapter>
+
+<Chapter id="process" lead="">
+
+In this process it was important for me to use a construction method that preserves the natural integrity of the rubber no re-vulcanization, no cutting, no harmful glues. The process had to be sustainable as well. 
+I took inspiration from traditional weaving craft. 
+<MethodList>
+  <Method title="Salvage">Used inner tubes collected from local bike shops, sorted and cleaned.</Method>
+  <Method title="Cold construction">Formed the shoe without re-vulcanization, cutting or glue — keeping the rubber's structure intact and avoiding toxic particles.</Method>
+  <Method title="Traditional craft">The shoe is hand made using a traditional shoe making practice and inpired by leather weaving</Method>
+</MethodList>
+
+<FigureGrid cols={3}>
+  <Figure src="./images/process1.jpg" alt="[Construction step — describe what this stage shows]" />
+  <Figure src="./images/process4.jpg" alt="[Construction step — describe what this stage shows]" />
+  <Figure src="./images/process2.jpg" alt="[Construction step — describe what this stage shows]" />
+</FigureGrid>
+<Caption>final result</Caption>
+
+<FigurePair>
+  <Figure src="./images/clay 33.jpg" alt="[Describe the clay form / last stage]" />
+  <Figure src="./images/scan133.jpg" alt="[Describe the 3D scan and what it was used for]" fit="contain" />
+</FigurePair>
+
+</Chapter>
+
+<Chapter id="outcome" lead="Its durability and water-resistant qualities led me to explore its potential as an alternative material for water shoes">
+
+By prototyping different weaving techniques and combining them with traditional handmade shoemaking methods, I developed a deep understanding of the material and its unique properties. Its durability and water-resistant qualities led me to explore its potential as an alternative material for water shoes, particularly those designed for walking and swimming on rocky beaches.
 
 
-Using an innovative construction method, we preserve the natural integrity of the rubber—without 
-re-vulcanization, cutting, or harmful glues. 
-This process minimizes exposure to toxic particles while allowing you to enjoy the pure strength and flexibility of high-quality natural rubber. Durable, water-resistant, and eco-friendly, the Inner Shoe redefines sustainable footwear.
+<Figure src="./images/process6.jpg" alt="exhibition shoe" caption="Exhibition show" tall />
 
-## Slider 2:
 
-For this individual project for the IDE SuperGreen module, I decided to design a shoe using upcycled bicycle inner tubes. As a cyclist myself, I frequently noticed this waste material in bike shops. Bicycle inner tubes are made from natural pure rubber, which is non-biodegradable. My goal was to repurpose this material in its existing form, experiment with its unique structure, and build upon it.
+<Figure src="./images/clay 35.JPEG" alt="[Final detail — describe]" wide />
 
+</Chapter>
