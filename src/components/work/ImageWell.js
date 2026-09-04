@@ -29,6 +29,10 @@ const ImageWell = ({
   showIcon = true,
   showDimensions = true,
   className = '',
+  // 'cover' (default) fills the slot, cropping to fit; 'contain' shows the
+  // whole frame uncropped, letterboxed on the well background — use it for a
+  // portrait/odd-ratio image the fixed-height slot would otherwise cut.
+  objectFit = 'cover',
 }) => {
   const gatsbyImage = image ? getImage(image) : null
 
@@ -39,7 +43,7 @@ const ImageWell = ({
           image={gatsbyImage}
           alt={alt || `${name} — project image`}
           className={s.wellImg}
-          objectFit="cover"
+          objectFit={objectFit}
         />
       </div>
     )

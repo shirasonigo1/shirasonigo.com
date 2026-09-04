@@ -17,7 +17,14 @@ module.exports = {
     // and queried via GraphQL.
     "gatsby-transformer-json",
     // Phase 5: generate sitemap.xml for SEO.
-    "gatsby-plugin-sitemap",
+    // sample-project is a draft/reference file (see content/projects/AUTHORING.md),
+    // never a published case study — keep it out of the sitemap.
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        excludes: ["/projects/sample-project/"],
+      },
+    },
     // gatsby-plugin-manifest removed: it requires an icon and would generate
     // favicon/apple-touch-icon links. The tab is intentionally left blank
     // (see the empty icon link injected in gatsby-ssr.js).
