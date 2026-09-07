@@ -34,6 +34,7 @@ hero:
   image: "./images/hero.jpg"         # relative to this file's own folder
   alt: "..."
   caption: "..."                     # optional
+  fit: "contain"                     # optional; see "Hero fit" below
 
 overview:                            # the "Overview" section, just below the hero
   lede: "The problem in two lines."
@@ -75,6 +76,15 @@ until that page gets its own pass.
 and a software project don't share a shape. Overview doesn't vary: every
 project gets one lede line and a short paragraph or two, in the same spot,
 next to the same glance panel. That's fixed furniture, same as the header.
+
+## Hero fit
+
+The hero fills a fixed-height band and crops to it by default (`fit: "cover"`),
+which is what a wide landscape shot wants. A square or portrait hero gets sliced
+by that band, so give it `fit: "contain"` — the well narrows to the image's own
+aspect ratio at the same height and centres in the column, showing the frame
+whole with no crop and no bars beside it. Only reach for it when the source
+isn't landscape; leaving it off is the right default.
 
 ## Chapters
 

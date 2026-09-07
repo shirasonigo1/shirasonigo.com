@@ -13,7 +13,7 @@ import Video from '../../components/video'
 import SidePanel from '../../components/project/blocks/SidePanel'
 import ChapterRail from '../../components/project/ChapterRail'
 import { buildMdxComponents } from '../../components/project/mdxComponents'
-import { buildImageMap } from '../../components/project/imageMap'
+import { buildImageMap, buildFileMap } from '../../components/project/imageMap'
 import * as s from '../../components/project/project.module.css'
 
 /*
@@ -89,19 +89,36 @@ const resolveNextProject = (mdxNode, allMdxNodes) => {
 }
 
 const Project = ({ data, children }) => {
-  const { mdx, allFile, allMdx } = data
+  const { mdx, allFile, allMedia, allMdx } = data
   const fm = mdx.frontmatter
   const chapters = fm.chapters || []
   const isLegacy = chapters.length === 0
 
   const projectDir = mdx.parent?.relativeDirectory
   const imageMap = buildImageMap(allFile.nodes, projectDir)
+  const fileMap = buildFileMap(allMedia.nodes, projectDir)
+
+  /*
+   * Hero fit. The default "cover" fills the fixed-height hero band and crops to
+   * it, which is right for a wide landscape hero shot. A square or portrait
+   * hero would be sliced by that band, so "contain" instead sizes the well to
+   * the image's own aspect ratio at the band's height, centred in the column —
+   * the frame shows whole, with no crop and no letterbox bars beside it. The
+   * ratio travels to CSS as --hero-aspect because ImageWell owns its own
+   * element and takes a className, not a style.
+   */
+  const heroImageData = fm.hero?.image?.childImageSharp?.gatsbyImageData
+  const heroContain = fm.hero?.fit === 'contain'
+  const heroAspect =
+    heroImageData?.width && heroImageData?.height
+      ? heroImageData.width / heroImageData.height
+      : null
   const chapterMeta = {}
   chapters.forEach((c) => {
     chapterMeta[c.id] = c
   })
 
-  const mdxComponents = buildMdxComponents({ chapterMeta, imageMap, projectTitle: fm.title })
+  const mdxComponents = buildMdxComponents({ chapterMeta, imageMap, fileMap, projectTitle: fm.title })
   const nextProject = resolveNextProject(mdx, allMdx.nodes)
 
   if (isLegacy) {
@@ -247,7 +264,10 @@ const Project = ({ data, children }) => {
           </div>
 
           {fm.hero && (
-            <div className={s.heroWrap}>
+            <div
+              className={s.heroWrap}
+              style={heroContain && heroAspect ? { '--hero-aspect': heroAspect } : undefined}
+            >
               <ImageWell
                 name={fm.title}
                 label="hero image"
@@ -256,7 +276,8 @@ const Project = ({ data, children }) => {
                 iconSize={28}
                 image={fm.hero.image}
                 alt={fm.hero.alt}
-                className={s.heroWell}
+                objectFit={heroContain ? 'contain' : 'cover'}
+                className={`${s.heroWell} ${heroContain ? s.heroWellContain : ''}`}
               />
               {fm.hero.caption && <p className={s.caption}>{fm.hero.caption}</p>}
             </div>
@@ -342,6 +363,7 @@ export const query = graphql`
           }
           alt
           caption
+          fit
         }
         overview {
           lede
@@ -403,6 +425,18 @@ export const query = graphql`
             transformOptions: { fit: COVER, cropFocus: ATTENTION }
           )
         }
+      }
+    }
+    allMedia: allFile(
+      filter: {
+        sourceInstanceName: { eq: "content" }
+        relativeDirectory: { regex: "/^projects//" }
+        extension: { regex: "/^(mp4|webm|mov|m4v|ogg)$/i" }
+      }
+    ) {
+      nodes {
+        relativePath
+        publicURL
       }
     }
     allMdx(filter: { frontmatter: { draft: { ne: true } } }) {

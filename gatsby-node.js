@@ -25,6 +25,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       stack: [String]
       featured: Boolean
       standfirst: String
+      # Flat legacy hero field the Work-page grid queries. Pin it explicitly
+      # (don't rely on Gatsby's automatic File inference): when the same image
+      # is also linked by an @fileByRelativePath field on the node — e.g. a
+      # project whose hero.image / card.image point at the same file as
+      # hero_image (GrazeIQ) — inference of this sibling field resolves to null
+      # and the card silently falls back to the placeholder well.
+      hero_image: File @fileByRelativePath
       category: String
       description: String
       discipline: String
@@ -54,6 +61,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: File @fileByRelativePath
       alt: String
       caption: String
+      # "cover" (default) or "contain" — see the hero note in AUTHORING.md.
+      fit: String
     }
     type MdxFrontmatterGlanceItem {
       label: String

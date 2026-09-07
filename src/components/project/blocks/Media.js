@@ -19,17 +19,22 @@ const PlayGlyph = () => (
  * while a project is still being written) it falls back to the poster image
  * — or the labelled ImageWell placeholder — with a play glyph over it.
  */
-export const createMedia = (imageMap = {}, projectTitle = 'Project') => {
+export const createMedia = (imageMap = {}, projectTitle = 'Project', fileMap = {}) => {
   const Media = ({ src, poster, alt, caption }) => {
     const posterImage = poster ? imageMap[normalizeImagePath(poster)] : null
     const posterUrl = posterImage ? getSrc(posterImage) : undefined
+    // Resolve a content-relative src (e.g. "./images/clip.mp4") to its served
+    // public URL; fall back to the raw string so an absolute/external src still
+    // works. Without this a bare content path resolves against the page URL and
+    // 404s, leaving a dead player.
+    const videoSrc = src ? fileMap[normalizeImagePath(src)] || src : null
 
     return (
       <figure className={s.media}>
-        {src ? (
+        {videoSrc ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption -- no caption-track authoring exists yet in this format; revisit if/when a real video ships
           <video className={s.mediaVideo} controls preload="metadata" poster={posterUrl}>
-            <source src={src} />
+            <source src={videoSrc} />
           </video>
         ) : (
           <div className={s.mediaPlaceholder}>

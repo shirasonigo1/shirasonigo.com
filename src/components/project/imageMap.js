@@ -23,3 +23,22 @@ export const buildImageMap = (fileNodes, projectRelativeDirectory) => {
   })
   return map
 }
+
+/*
+ * Same lookup, for non-image files (video, etc.) that sharp does not process:
+ * keyed by project-relative path → the file's public URL. gatsby-source-
+ * filesystem copies any File whose `publicURL` is queried into /static and
+ * hands back the served URL, so a <Media src="./images/clip.mp4"> prop can
+ * resolve to something the browser can actually load.
+ */
+export const buildFileMap = (fileNodes, projectRelativeDirectory) => {
+  const map = {}
+  if (!projectRelativeDirectory) return map
+  const prefix = `${projectRelativeDirectory}/`
+  ;(fileNodes || []).forEach((node) => {
+    if (!node.relativePath || !node.relativePath.startsWith(prefix)) return
+    if (!node.publicURL) return
+    map[node.relativePath.slice(prefix.length)] = node.publicURL
+  })
+  return map
+}

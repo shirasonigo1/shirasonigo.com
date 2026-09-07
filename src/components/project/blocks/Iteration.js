@@ -15,7 +15,7 @@ import * as s from '../project.module.css'
  * exactly this case.
  */
 export const createIteration = (imageMap = {}, projectTitle = 'Project') => {
-  const Iteration = ({ n, image, imageAlt, changed, learned }) => {
+  const Iteration = ({ n, image, imageAlt, imagePosition, changed, learned }) => {
     const resolvedImage = image ? imageMap[normalizeImagePath(image)] : null
     return (
       <li className={s.iteration}>
@@ -28,11 +28,12 @@ export const createIteration = (imageMap = {}, projectTitle = 'Project') => {
           label={`prototype v${n}`}
           image={resolvedImage}
           alt={imageAlt}
+          objectPosition={imagePosition}
           className={s.iterationWell}
         />
         <div className={s.iterationText}>
           <div>
-            <div className={s.metaLabel}>What changed</div>
+            <div className={s.metaLabel}>Prototype</div>
             <p className={s.iterationP}>{changed}</p>
           </div>
           <div>
