@@ -410,6 +410,12 @@
 .figureGrid .figureWell {
   height: 260px;
 }
+/* Square cells: let the well take a 1:1 shape from its column width so a
+   square source fills it exactly — no cover-crop zoom, no top/bottom cut. */
+.figureGridSquare .figureWell {
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
 
 /* ---------- Insights ---------- */
 .insights {
