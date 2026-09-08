@@ -584,6 +584,15 @@
   background: #000;
   border-radius: var(--radius);
 }
+/* Embedded player (YouTube/Vimeo iframe): fixed 16:9, fills the column. */
+.mediaEmbed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #000;
+  border-radius: var(--radius);
+}
 .mediaPlaceholder {
   position: relative;
 }
