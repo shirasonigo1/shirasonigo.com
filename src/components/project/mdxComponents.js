@@ -24,7 +24,7 @@ import * as s from './project.module.css'
  * whole body on the legacy fallback path) the 680px-measure body styling
  * without every project file needing its own component.
  */
-export const buildMdxComponents = ({ chapterMeta = {}, imageMap = {}, projectTitle }) => ({
+export const buildMdxComponents = ({ chapterMeta = {}, imageMap = {}, fileMap = {}, projectTitle }) => ({
   Chapter: createChapter(chapterMeta),
   Figure: createFigure(imageMap, projectTitle),
   FigurePair,
@@ -36,7 +36,7 @@ export const buildMdxComponents = ({ chapterMeta = {}, imageMap = {}, projectTit
   Iteration: createIteration(imageMap, projectTitle),
   MethodList,
   Method,
-  Media: createMedia(imageMap, projectTitle),
+  Media: createMedia(imageMap, projectTitle, fileMap),
   SidePanel,
   Closing,
   p: (props) => <p className={s.bodyText} {...props} />,

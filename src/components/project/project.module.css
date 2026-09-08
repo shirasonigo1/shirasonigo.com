@@ -13,6 +13,21 @@
 
 /* ---------- page shell (duplicated per-page, matching work.module.css / about.module.css) ---------- */
 .page {
+  /*
+   * Fluid desktop tracks. The mock fixes numbers at 1440px and at mobile and
+   * says nothing about the range between, so the page used to hold the 1440px
+   * values unscaled all the way down to 821px — a 420px meta column on an
+   * 821px screen left the standfirst a 162px-wide ribbon. Every clamp below
+   * takes the mock's number as its ceiling and hits it at 1440px, so the
+   * design renders exactly as drawn and only shrinks under it. Mobile
+   * (<=820px) still overrides these with its own 22px gutter.
+   */
+  --gutter: clamp(28px, 5vw, 72px);
+  --rail-w: clamp(120px, 11.9vw, 170px);
+  --col-gap: clamp(40px, 6.7vw, 96px);
+  --meta-w: clamp(260px, 29.2vw, 420px);
+  --header-gap: clamp(40px, 5.6vw, 80px);
+  --glance-w: clamp(240px, 26.4vw, 380px);
   background: var(--paper);
   min-height: 100vh;
   font-family: var(--font-sans);
@@ -93,13 +108,13 @@
   font-size: 14px;
 }
 .skipLink:focus {
-  left: 72px;
+  left: var(--gutter);
   top: 12px;
 }
 
 /* ---------- header ---------- */
 .header {
-  padding: 40px 72px 0 72px;
+  padding: 40px var(--gutter) 0 var(--gutter);
 }
 .backLink {
   display: inline-flex;
@@ -114,8 +129,8 @@
 }
 .headerGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-  gap: 80px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--meta-w));
+  gap: var(--header-gap);
   align-items: end;
   padding-bottom: 40px;
 }
@@ -159,20 +174,33 @@
 
 /* ---------- hero ---------- */
 .heroWrap {
-  padding: 0 72px;
+  padding: 0 var(--gutter);
 }
 .heroWell {
-  height: 620px;
+  --hero-band: 620px;
+  height: var(--hero-band);
+}
+/* Contain: keep the band's height but narrow the well to the image's own
+   aspect ratio and centre it, so a square or portrait hero shows whole rather
+   than being cropped to a horizontal strip. --hero-aspect (width / height) is
+   set on .heroWrap by the template; the 16:9 fallback matches the default
+   band. Width follows --hero-band rather than a literal 620px so the mobile
+   band height below keeps the well tight to the image instead of leaving
+   bars beside it. min() keeps a very wide image inside the column. */
+.heroWellContain {
+  width: min(100%, calc(var(--hero-band) * var(--hero-aspect, 1.7778)));
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------- overview ---------- */
 .overview {
-  padding: 88px 72px 0 72px;
+  padding: 88px var(--gutter) 0 var(--gutter);
 }
 .overviewGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
-  gap: 96px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--glance-w));
+  gap: var(--col-gap);
 }
 .overviewGridSingle {
   grid-template-columns: minmax(0, 1fr);
@@ -206,10 +234,10 @@
 
 /* ---------- chapter grid ---------- */
 .chapterGrid {
-  padding: 104px 72px 0 72px;
+  padding: 104px var(--gutter) 0 var(--gutter);
   display: grid;
-  grid-template-columns: 170px minmax(0, 1fr);
-  gap: 96px;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+  gap: var(--col-gap);
   align-items: start;
 }
 .chapterContent {
@@ -217,7 +245,7 @@
   flex-direction: column;
 }
 .legacyBody {
-  padding: 96px 72px 0 72px;
+  padding: 96px var(--gutter) 0 var(--gutter);
   display: flex;
   flex-direction: column;
   max-width: 752px;
@@ -321,11 +349,12 @@
   width: 100%;
   height: 420px;
 }
-/* Bleed: break out to the 72px page margin — 170px rail + 96px gap the
-   figure would otherwise sit inside. */
+/* Bleed: break out to the page gutter — the rail plus the column gap the
+   figure would otherwise sit inside. Derived from the same tracks the chapter
+   grid uses, so it follows them as they shrink instead of overshooting. */
 .figureBleed {
-  margin-left: -266px;
-  width: calc(100% + 266px);
+  margin-left: calc(-1 * (var(--rail-w) + var(--col-gap)));
+  width: calc(100% + var(--rail-w) + var(--col-gap));
 }
 .figureBleed .figureWell {
   width: 100%;
@@ -380,6 +409,12 @@
 }
 .figureGrid .figureWell {
   height: 260px;
+}
+/* Square cells: let the well take a 1:1 shape from its column width so a
+   square source fills it exactly — no cover-crop zoom, no top/bottom cut. */
+.figureGridSquare .figureWell {
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
 
 /* ---------- Insights ---------- */
@@ -603,7 +638,7 @@
 
 /* ---------- next project ---------- */
 .nextProject {
-  margin: 104px 72px 0 72px;
+  margin: 104px var(--gutter) 0 var(--gutter);
   padding: 44px 48px;
   background: var(--card-feature);
   border: 1px solid var(--card-feature-line);
@@ -665,7 +700,7 @@
     font-size: 13.5px;
   }
   .headerGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px;
     padding-bottom: 26px;
   }
@@ -690,14 +725,14 @@
     padding: 0 22px;
   }
   .heroWell {
-    height: 250px;
+    --hero-band: 250px;
   }
 
   .overview {
     padding: 52px 22px 0 22px;
   }
   .overviewGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
   .overviewLede {
@@ -710,9 +745,13 @@
     border-radius: var(--radius);
   }
 
+  /* minmax(0, 1fr), not a bare 1fr: a bare 1fr floors at the column's
+     min-content, and .figureBleed's calc(100% + 44px) feeds straight back
+     into that floor — the column grew past the viewport and the page scrolled
+     sideways at 320px. minmax(0, ...) lets the column shrink instead. */
   .chapterGrid {
     padding: 0 22px 0 22px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
   .legacyBody {
@@ -774,18 +813,18 @@
   }
   .figurePair,
   .figureGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
   .figurePair .figureWell {
     height: 230px;
   }
   .insights {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
   .iteration {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 14px;
     padding: 0;
     overflow: hidden;
@@ -810,7 +849,7 @@
     padding-left: 20px;
   }
   .closing {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 26px;
   }
 

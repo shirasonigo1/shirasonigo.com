@@ -33,6 +33,10 @@ const ImageWell = ({
   // whole frame uncropped, letterboxed on the well background — use it for a
   // portrait/odd-ratio image the fixed-height slot would otherwise cut.
   objectFit = 'cover',
+  // Which part of a cover-cropped image stays in view, as a CSS
+  // object-position ('50% 50%' centres). Nudge it (e.g. '50% 70%') when the
+  // subject sits off-centre and the default crop cuts it.
+  objectPosition = '50% 50%',
 }) => {
   const gatsbyImage = image ? getImage(image) : null
 
@@ -44,6 +48,7 @@ const ImageWell = ({
           alt={alt || `${name} — project image`}
           className={s.wellImg}
           objectFit={objectFit}
+          objectPosition={objectPosition}
         />
       </div>
     )

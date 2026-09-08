@@ -566,7 +566,7 @@
   .twoUp {
     padding: 0 22px;
     margin-bottom: 18px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px;
   }
   .blockWide {
@@ -579,7 +579,7 @@
 
   /* featured stacks image-above-text */
   .featured {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .featuredWell {
     order: -1;
@@ -642,7 +642,7 @@
 
   /* wide → normal stacked card (no standfirst / arrow on mobile) */
   .wide {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .wideWell {
     border: none;
@@ -697,7 +697,7 @@
     display: none;
   }
   .experimentsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
 

@@ -21,7 +21,7 @@ const ContactCTA = () => (
       </p>
       <a href="#" className={`${s.btnPrimary} ${s.contactBtn}`}>
         <Mail size={16} />
-        <span>[your@email.com]</span>
+        <span>shirasonigo1@gmail.com</span>
       </a>
     </div>
   </section>

@@ -1,0 +1,131 @@
+---
+title: "GrazeIQ"
+slug: "grazeiq"
+year: "2025"
+discipline: "Transdisciplinary practice"
+standfirst: "Intelligent, AI-driven grazing managment system that enables regenrative farmers to accuratly monitor and respond to pasture status in real-time"
+tags: ["Product Design", "Hardware", "Sustainability", "Research"]
+draft: false
+
+role: "Design engineer"
+timeline: "Sep-Dec 2025"
+team: "Guannan liu, Michael Jones, Gruffydd Gozali, Shira Sonigo"
+context: "MA/MSc Innovation Design Engineering"
+
+# Flat legacy fields kept deliberately: the Work-page grid
+# (src/pages/projects/index.js) still reads hero_image / category /
+# standfirst, per content/projects/AUTHORING.md's migration note. Remove
+# once the Work listing reads the new `card` block.
+hero_image: "./images/GrazeIQ.jpg"
+hero_image_alt: "grazeiq"
+category: ""
+
+hero:
+  image: "./images/GrazeIQ.jpg"
+  alt: "Product image"
+  # Square source (1080 x 1080) — contain so the hero band shows it whole.
+  fit: "contain"
+
+overview:
+  lede: "GrazeIQ is an AI-powered livestock wearable that helps farmers monitor pasture conditions in real time and make smarter grazing decisions for regenerative farming."
+  body:
+    - "While researching food security, we found that many UK farmers are struggling to keep their businesses financially viable. Farmers face volatile market prices, rising costs, climate change, taxation pressures, and uncertainty around agricultural subsidies in the post-Brexit era. More than ever, they need new ways of working that can help their farms remain resilient and profitable for future generations."
+    - "As a result, regenerative farming is gaining increasing attention. By reducing reliance on costly inputs while improving soil health and long-term productivity, regenerative practices offer farmers a way to protect both their financial sustainability and the environment."
+
+card:
+  summary: "GrazeIQ"
+  image: "./images/GrazeIQ.jpg"
+  featured: false
+  order: 2
+
+glance:
+  - label: "Outcome"
+    value: "Wearable device for livestocks"
+  - label: "Methods"
+    value: "Field interviews, ideation, rapid prototyping"
+  - label: "Recognition"
+    value: "Imperial WE INNOVATE program"
+
+chapters:
+  - { id: "research", number: "01", title: "Research" }
+  - { id: "development", number: "02", title: "Development" }
+  - { id: "delivery", number: "03", title: "Delivery" }
+
+
+next: "the-inner-shoe"
+---
+
+<Chapter id="research" lead="">
+
+Our research included field interviews with farmers, veterinarians, and industry professionals. We immersed ourselves in the realities of day-to-day farming to better understand the challenges farmers face, from livestock management and pasture monitoring to financial and operational pressures.
+
+<FigurePair>
+  <Figure src="./images/moloteam.jpg" alt="team visit, dairy farm" caption="The team" ratio="4:3" dimensions="1200 × 900" />
+  <Figure src="./images/research2.png" alt="whiteboard" ratio="4:3" dimensions="1200 × 900" />
+</FigurePair>
+<Figure src="./images/Exhibition.jpg" alt="" caption="Exhibition poster" fit="contain"/>
+
+
+
+<Insights>
+  <Insight title="Farmers lack an accurate picture of their pasture">
+   The most common methods for assessing grass availability rely heavily on visual judgement or manual tools which are not accurate.
+  </Insight>
+  <Insight title="Good grazing is a constant timing decision">
+    Regenerative grazing depends on moving livestock at the right moment allowing the grass to be grazed without overgrazing and giving each paddock enough time to recover.
+  </Insight>
+  <Insight title="Existing tools create more work, rather than removing it">
+    Current pasture-monitoring methods involve a trade-off between affordability, accuracy and effort. Simple tools such as sward sticks and plate meters require significant manual effort. 
+    </Insight>
+</Insights>
+
+</Chapter>
+
+<Chapter id="development" lead="We developed GrazeIQ through rapid prototyping and in-field testing">
+
+We Moved between hardware, data collection and the farmer-facing experience. The opportunity is not simply to create another measurement tool, but to make pasture monitoring effortless and turn field data into clear, actionable guidance.
+
+<ol>
+  <Iteration
+    n="01"
+    image="./images/pt1_resize.jpg"
+    changed="Pasture monitoring system using a soil sensor integrated into a cow shoe." 
+    learned="We had to continuously challenge the idea of placing the sensor in a cow shoe, particularly because of the maintenance, durability, and installation challenges it introduced."
+  />
+  <Iteration
+    n="02"
+    image="./images/gruf_mike.jpg"
+    changed="Explored LiDAR sensing as an alternative approach for pasture monitoring."
+    learned="Using LiDAR enabled us to reposition the sensor higher on the cow’s leg, providing a safer and more protected location for the device."
+   />
+  <Iteration
+    n="03"
+    image="./images/field.jpg"
+    changed="Tested the sensing approach in-field to collect real pasture data from grazing cattle."
+    learned="Field testing helped us understand the variability and noise of real-world data, highlighting the need to refine sensor placement, calibration, and data processing."
+   />
+
+</ol>
+
+<Figure src="./images/wide_cow.jpg" ratio="16:9" dimensions="2000 × 1125" />
+
+
+<Media src="./images/GrazeIQ_V.mp4" caption="user testing" />
+
+</Chapter>
+
+<Chapter id="delivery" lead="">
+
+The final prototype includes of the grass measurment sensor attached to the cow leg, connected to an intergrated mobile app for real-time paddock monitoring and AI grazing suggestions. 
+
+<Figure src="./images/Ex_table.jpg" alt="GrazeIQ exhibition stand" wide />
+
+<FigureGrid cols={3} square>
+  <Figure src="./images/GrazeIQ_Logo.jpg" ratio="1:1" dimensions="900 × 900" />
+  <Figure src="./images/fieldrender.jpg"  ratio="1:1" dimensions="900 × 900" />
+  <Figure src="./images/pix_render.jpg" ratio="1:1" dimensions="900 × 900" />
+</FigureGrid>
+
+
+
+</Chapter>
