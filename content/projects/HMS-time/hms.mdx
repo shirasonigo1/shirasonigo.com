@@ -1,42 +1,83 @@
 ---
 title: "HMS TIME"
-year: "2024"
 slug: "hms-time"
+year: "2024"
+discipline: "Cyber-Physical Systems"
+standfirst: "A kinetic ship-clock you steer with your body — time reimagined as something to be felt and navigated, not just watched."
+tags: ["Cyber-Physical Systems", "Human-Machine Interaction", "Installation"]
+draft: false
+
+role: "Design and engineering"
+timeline: "2024"
+team: "Carrie Rong, Moin Mulla, Shira Sonigo"
+context: "IDE Cyber-Physical Systems, Imperial College London × RCA"
+
+hero:
+  image: "./images/hms2.JPG"
+  alt: "The HMS Time ship-clock sculpture, driven by a set of exposed gears"
+  fit: "contain"
+
+overview:
+  lede: "HMS Time turns the abstract idea of time into a sculptural ship you drive with your own body — a clock you inhabit rather than read."
+  body:
+    - "Made for the IDE Cyber-Physical Systems course at Imperial in collaboration with Carrie Rong and Moin Mulla, the piece grew out of the mechanics of the pendulum clock and a fascination with how we perceive time."
+    - "The result is a motor-and-gear ship sculpture that a webcam brings to life: audiences pose their arms to the 12, 3 and 9 o'clock positions and become the clock themselves."
+
+glance:
+  - label: "Outcome"
+    value: "Interactive kinetic installation"
+  - label: "Interaction"
+    value: "Webcam body-position tracking"
+  - label: "Built with"
+    value: "Motors, gears and a sculptural ship form"
+
+chapters:
+  - { id: "concept", number: "01", title: "The concept" }
+  - { id: "build", number: "02", title: "Form & build" }
+  - { id: "interaction", number: "03", title: "Becoming the clock" }
+
+# Flat legacy fields kept for the Work-page grid (see AUTHORING.md).
 hero_image: "./images/hms2.JPG"
-category: "protfolio"
-hero_image_alt: "hero picture"
-hero_image_credit_text: "CPS"
-tags: ["#IDE", "#Cyber Physical Systems", "#HMI"]
-sliders:
-  - images:
-      - "./images/hms1.JPG"
-      - "./images/hms2.JPG"
-      - "./images/hms3.JPG"
-      - "./images/hms4.JPG"
-  - images:
-      - "./images/process.jpg"
-      - "./images/process1.jpg"
-      - "./images/process2.jpg"
-      - "./images/process3.jpg"
-videoSrcURL: 
-    - https://www.youtube.com/embed/maqjXll_g4k
-    - https://www.youtube.com/embed/F8J6L_X2jtA
-    
-videoTitle: "CPS video"
-GithubLink: https://github.com/shirasonigo1/HMS-TIME
+hero_image_alt: "The HMS Time ship-clock sculpture"
+category: ""
+
+card:
+  summary: "A kinetic ship-clock you steer with your body."
+  image: "./images/hms2.JPG"
+  featured: false
+  order: 4
 ---
-This is the final project for the IDE Cyber-Physical Systems course at Imperial. 
-I collaborated on this project with Carrie Rong and Moin Mulla. 
 
-## Slider 1: 
+<Chapter id="concept" lead="What if time wasn't something ticking away in the background, but a medium to be felt and navigated?">
 
+The pendulum clock has long captured the passage of time in hours, minutes and seconds with its steady rhythmic swing. Inspired by the intricate mechanics of clockwork and fascinated by the nature of time perception, we set out to play with an idea of time that transcends the mechanical: instead of the ticking of a traditional clock that persists in the background, what if we had the ability to shape and guide our own experience of it?
 
+HMS Time reimagines the abstract notion of time as not only something ticking down, but a medium to be felt and navigated through.
 
-The pendulum clock has long captured the passage of time in hours, minutes, and seconds with its steady rhythmic swing. Inspired by the intricate mechanics of clockwork and fascinated by the nature of time perception, we set out to play with an idea of time that transcends the mechanical. Instead of being represented through the ticking of a traditional clock that persists in the background, what if we had the ability to shape and guide our own experience of time?
+<Figure src="./images/hms1.JPG" alt="The HMS Time sculpture — a ship form driven by exposed gears" caption="The finished piece: a ship, motored by a set of gears." tall />
 
-## Slider 2:
+</Chapter>
 
-Our project, HMS Time, reimagines the abstract notion of time as not only something ticking down, but a medium to be felt and navigated through. Its sculptural shape takes the form of a ship, motored by a set of gears, and invites kinetic interaction through a webcam that detects body position. Audience members manipulate the motion of the ship and gears by forming their arms into the 12, 3, and 9 o'clock positions, thus becoming the clock with their own bodies.
+<Chapter id="build" lead="Translating the idea into a working object — a ship, a gear train, and the mechanism that drives it.">
 
+Its sculptural shape takes the form of a ship, motored by a set of gears. Building it meant moving between the physical form and the mechanism underneath — prototyping the gear train and the motorised drive that gives the ship its motion.
 
+<FigurePair>
+  <Figure src="./images/process.jpg" alt="Build process — assembling the drive mechanism" />
+  <Figure src="./images/process3.jpg" alt="Detail of the gear assembly" />
+</FigurePair>
+<Caption>Fabricating the gear train and the ship form.</Caption>
 
+</Chapter>
+
+<Chapter id="interaction" lead="The clock only runs when someone becomes it.">
+
+The piece invites kinetic interaction through a webcam that detects body position. Audience members manipulate the motion of the ship and gears by forming their arms into the 12, 3 and 9 o'clock positions — thus becoming the clock with their own bodies.
+
+<Media src="https://www.youtube.com/embed/maqjXll_g4k" caption="HMS Time in motion." />
+
+<Media src="https://www.youtube.com/embed/F8J6L_X2jtA" caption="Becoming the clock — steering the ship through body position." />
+
+The full build is documented on <a href="https://github.com/shirasonigo1/HMS-TIME">GitHub</a>.
+
+</Chapter>
