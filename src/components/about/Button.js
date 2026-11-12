@@ -5,7 +5,7 @@ import * as s from './about.module.css'
 /*
  * Button — the filled/outline action the Work system didn't have. Two variants:
  *  - outline: hairline border, dark label (Download CV)
- *  - solid:   ink background, paper label (Contact me)
+ *  - solid:   accent background, paper label (Contact me — teal on About)
  * Renders a real <a> (internal Link / external/href) or <button> — never a div —
  * with a visible accent focus ring. Icon + label sit in a 9–10px gap; pass `icon`
  * for a leading glyph or `iconRight` for a trailing one.

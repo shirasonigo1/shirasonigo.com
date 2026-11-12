@@ -12,9 +12,9 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    // About page: journey / press / awards are data, sourced as JSON from
-    // content/about/ (already covered by the "content" filesystem source below)
-    // and queried via GraphQL.
+    // Turns any *.json under content/ into GraphQL nodes. Nothing uses it right
+    // now (the About page's journey/press/awards data was removed), but it is
+    // harmless to keep for future JSON content.
     "gatsby-transformer-json",
     // Phase 5: generate sitemap.xml for SEO.
     // sample-project is a draft/reference file (see content/projects/AUTHORING.md),
