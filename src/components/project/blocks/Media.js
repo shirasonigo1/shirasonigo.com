@@ -19,19 +19,41 @@ const PlayGlyph = () => (
  * while a project is still being written) it falls back to the poster image
  * — or the labelled ImageWell placeholder — with a play glyph over it.
  */
+// A YouTube/Vimeo URL is an embed, not a file — it plays in an <iframe>, not a
+// <video><source>. Detect it so a migrated `videoSrcURL` (e.g. HMS-time's
+// YouTube links) renders a real player instead of a dead <source>.
+const EMBED_HOST = /(?:youtube\.com|youtu\.be|player\.vimeo\.com|vimeo\.com)/i
+const toEmbedUrl = (url) => {
+  const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/)
+  if (yt) return `https://www.youtube.com/embed/${yt[1]}`
+  const vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)/)
+  if (vm) return `https://player.vimeo.com/video/${vm[1]}`
+  return url
+}
+
 export const createMedia = (imageMap = {}, projectTitle = 'Project', fileMap = {}) => {
   const Media = ({ src, poster, alt, caption }) => {
     const posterImage = poster ? imageMap[normalizeImagePath(poster)] : null
     const posterUrl = posterImage ? getSrc(posterImage) : undefined
+    const isEmbed = !!src && EMBED_HOST.test(src)
     // Resolve a content-relative src (e.g. "./images/clip.mp4") to its served
     // public URL; fall back to the raw string so an absolute/external src still
     // works. Without this a bare content path resolves against the page URL and
     // 404s, leaving a dead player.
-    const videoSrc = src ? fileMap[normalizeImagePath(src)] || src : null
+    const videoSrc = !src || isEmbed ? null : fileMap[normalizeImagePath(src)] || src
 
     return (
       <figure className={s.media}>
-        {videoSrc ? (
+        {isEmbed ? (
+          <iframe
+            className={s.mediaEmbed}
+            src={toEmbedUrl(src)}
+            title={caption || alt || `${projectTitle} video`}
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+          />
+        ) : videoSrc ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption -- no caption-track authoring exists yet in this format; revisit if/when a real video ships
           <video className={s.mediaVideo} controls preload="metadata" poster={posterUrl}>
             <source src={videoSrc} />

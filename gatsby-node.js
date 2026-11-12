@@ -45,6 +45,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       glance: [MdxFrontmatterGlanceItem]
       chapters: [MdxFrontmatterChapter]
       card: MdxFrontmatterCard
+      # Legacy fallback fields the template query still selects. Declared
+      # explicitly so they stay queryable once the last project defining a
+      # given field migrates to chapters — otherwise Gatsby can no longer
+      # infer the type and query extraction fails the build.
+      videoSrcURL: [String]
+      videoTitle: String
+      GithubLink: String
+      linkedin_post: String
     }
     # Overview lives in frontmatter, not the MDX body: unlike chapters (which
     # vary wildly per project) every project has exactly one lede line plus a
